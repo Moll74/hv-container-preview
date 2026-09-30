@@ -1,0 +1,108 @@
+{
+  "_laes_mig": [
+    "Prismodel ('hjernen') for prisberegneren på containerudlejning.dk. Siden læser denne fil, hver gang den åbnes – ret tallene her, så ændres prisen på siden med det samme.",
+    "Rækkefølge: 1) adressePriser (en bestemt adresse)  2) postnrPriser (et postnummer)  3) lokalZone (hele postnumrene i 'postnumre' + luftlinje fra pladsen)  4) kmModel (vej-km ud over zonen).",
+    "status: 'estimat' viser 'Estimat – bekræftes ved booking' på siden. Sæt 'bekraeftet', når HV har indsat egne tal.",
+    "ALLE tal markeret 'estimat' er forslag fra designudkastet – de skal erstattes af HV-transports egne priser før noget går live.",
+    "samkoersel: fordel, når kunden tager sand, grus, muld eller en affaldscontainer med på samme tur. erhverv: priser ekskl. moms til erhvervssiden – kun de felter, der står her, afviger fra privatpriserne."
+  ],
+  "version": "2026-09-30-udkast",
+  "status": "estimat",
+  "depot": {
+    "navn": "HV-transport, Mørupvej 37, 7400 Herning",
+    "lat": 56.11823,
+    "lon": 8.93457
+  },
+  "tur": {
+    "basisPris": 1500,
+    "_note": "én tur med kranbil: levering ELLER afhentning (kendt pris fra containerudlejning.dk)"
+  },
+  "lokalZone": {
+    "aktiv": true,
+    "navn": "Fast lokalpris",
+    "radiusKm": 15,
+    "maaling": "luftlinje",
+    "prisPrTur": 1500,
+    "_note": "kampagneforslag: HV's normalpris 3.000 kr. (1.500 + 1.500) som fast pris i hele Herning (7400), Ikast (7430) og Sunds (7451) samt inden for 15 km luftlinje af pladsen – ingen rabat, jf. anbefalingen om normalpris fra start (HV_4). Skal godkendes af HV",
+    "postnumre": [
+      "7400",
+      "7430",
+      "7451"
+    ]
+  },
+  "kmModel": {
+    "fraKm": 15,
+    "krPrVejKmPrTur": 20,
+    "maksVejKm": 100,
+    "_note": "estimat: tillæg pr. vej-km ud over 15 km, pr. tur (dækker kørsel ud og hjem). Fx 40 km væk = 25 × 20 = 500 kr. ekstra pr. tur"
+  },
+  "afstand": {
+    "routing": "https://router.project-osrm.org/route/v1/driving/",
+    "vejfaktor": 1.3,
+    "_note": "vej-km hentes fra en åben ruteplanlægger; fejler den, bruges luftlinje × vejfaktor. Til drift bør HV bruge egen/betalt ruteservice"
+  },
+  "leje": {
+    "inklDage": 30,
+    "dagspris": {
+      "std": 28,
+      "iso": 33
+    }
+  },
+  "flytning": {
+    "basisPris": 1500,
+    "krPrVejKmMellemAdresser": 15,
+    "inklKm": 10,
+    "_note": "estimat: ekstra tur med fyldt container fra gammel til ny adresse. Pris = basis + (km mellem adresserne − inklKm) × sats"
+  },
+  "postnrPriser": {
+    "_eksempel": "\"7430\": { \"prisPrTur\": 1650 }  → fast pris pr. tur for hele postnummeret"
+  },
+  "adressePriser": {
+    "_eksempel": "\"<DAWA adgangsadresse-id>\": { \"prisPrTur\": 1800, \"note\": \"smal indkørsel\" }"
+  },
+  "udenforOmraade": {
+    "tekst": "Så langt kører vi normalt ikke med online-pris – ring 97 12 23 23, så finder vi en løsning."
+  },
+  "samkoersel": {
+    "aktiv": true,
+    "note": "pris på varen følger på bekræftelsen",
+    "_note": "eksempel: samlerabat (inkl. moms) pr. ekstra ydelse på samme tur som containeren – fx sand, grus, muld eller affaldscontainer. Maks. 4 ydelser. HV sætter beløbet",
+    "affaldRetur": true,
+    "_note_retur": "kampagneforslag: en affaldscontainer bestilt sammen med opbevaringscontaineren hentes på returturen uden ekstra kørselspris – affaldet afregnes pr. ton som normalt. Skal godkendes af HV",
+    "fordelPrYdelse": 250,
+    "maksYdelser": 4
+  },
+  "erhverv": {
+    "_note": "erhvervspriser ekskl. moms. Grundpris og dagspris fra HV_4 (2.400 kr. ekskl. for levering, afhentning og 30 dage; 22,40 kr./dag). Månedspris fra 3. måned er forslaget fra HV_1 (450–500 kr.) – her 475 kr.",
+    "moms": false,
+    "tur": {
+      "basisPris": 1200
+    },
+    "lokalZone": {
+      "prisPrTur": 1200
+    },
+    "kmModel": {
+      "krPrVejKmPrTur": 16
+    },
+    "leje": {
+      "inklDage": 30,
+      "dagspris": {
+        "std": 22.4,
+        "iso": 26.4
+      },
+      "maanedspris": 475,
+      "maanedsprisFraDag": 61
+    },
+    "flytning": {
+      "basisPris": 1200,
+      "krPrVejKmMellemAdresser": 12,
+      "inklKm": 10
+    },
+    "samkoersel": {
+      "aktiv": true,
+      "note": "affald, grus og kran på samme faktura",
+      "fordelPrYdelse": 200,
+      "maksYdelser": 4
+    }
+  }
+}

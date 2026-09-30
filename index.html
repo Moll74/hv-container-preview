@@ -1,0 +1,1417 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Flytte- og opbevaringscontainer i Herning &amp; Midtjylland · containerudlejning.dk (designudkast)</title>
+<link rel="preload" as="image" href="assets/villa_drive.jpg">
+<link rel="stylesheet" href="assets/fonts.css">
+<script>
+/* Google Consent Mode v2: everything denied until the visitor chooses (no Google tag is loaded in this draft) */
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',functionality_storage:'granted',security_storage:'granted',wait_for_update:500});
+</script>
+<style>
+:root{
+  --s900:#0d171d; --s800:#132029; --s700:#1d2f3b; --s600:#2c4252;
+  --rust:#c24a32; --rust2:#e3683f; --rust-ink:#fff;
+  --paper:#f4f1ea; --paper2:#ebe6dc; --card:#ffffff; --ink:#15212a; --muted:#5b6872; --line:#dcd5c8;
+  --ok:#2e7d4f;
+  --fd:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --fb:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fm:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--s900);color:var(--ink);font:16px/1.55 var(--fb);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img,svg{display:block}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--fd);text-transform:uppercase;letter-spacing:.01em;line-height:.98;margin:0;text-wrap:balance}
+.eyebrow{font:600 12.5px/1 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--rust2)}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 15px/1 var(--fb);text-decoration:none;border-radius:999px;padding:15px 22px;border:1px solid transparent;cursor:pointer;transition:transform .25s var(--ease),background .25s,box-shadow .25s}
+.btn.primary{background:var(--rust);color:#fff;box-shadow:0 10px 30px -10px rgba(194,74,50,.7)}
+.btn.primary:hover{background:var(--rust2);transform:translateY(-2px)}
+.btn.ghost{border-color:rgba(255,255,255,.28);color:#fff;background:rgba(255,255,255,.04)}
+.btn.ghost:hover{background:rgba(255,255,255,.12)}
+.btn.dark{background:var(--ink);color:#fff}
+.btn .arr{transition:transform .25s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+:focus-visible{outline:2px solid var(--rust2);outline-offset:3px}
+
+/* draft ribbon */
+.draft{position:fixed;left:0;right:0;top:0;z-index:60;background:#f0c46a;color:#2a1f05;font:600 11.5px/1 var(--fb);letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:6px 10px}
+
+/* nav */
+.nav{position:fixed;left:0;right:0;top:24px;z-index:50;transition:background .35s,backdrop-filter .35s,top .35s,box-shadow .35s}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
+.nav.scrolled{background:rgba(13,23,29,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}
+.logo img{height:44px;width:auto}
+.logo b{font:700 21px/1 var(--fd);letter-spacing:.01em;display:block}
+.logo small{font:500 11px/1 var(--fb);color:#9fb0ba;letter-spacing:.06em;text-transform:uppercase;display:block;margin-top:3px}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.nav ul a{color:#cfd9de;text-decoration:none;font-size:14.5px;font-weight:500}
+.nav ul a:hover{color:#fff}
+.nav .right{display:flex;align-items:center;gap:14px}
+.nav .tel{color:#fff;text-decoration:none;font:600 14px var(--fm)}
+.nav .btn{padding:11px 18px;font-size:14px}
+@media (max-width:1120px){.nav ul{display:none}}
+@media (max-width:560px){.nav .tel{display:none}.logo small{display:none}.logo img{height:34px}.nav .btn{padding:10px 14px;font-size:13px}.draft{font-size:10px;letter-spacing:.04em}}
+
+/* 3D stage */
+#stage{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block;opacity:0;transition:opacity 1.2s ease}
+.scene-ready #stage{opacity:1}
+#loader{position:fixed;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:var(--s900);transition:opacity .9s ease;pointer-events:none}
+#loader img{width:220px;opacity:.9}
+#loader .lbar{width:220px;height:2px;background:rgba(255,255,255,.12);overflow:hidden;border-radius:2px}
+#loader .lbar i{display:block;height:100%;width:0;background:var(--rust2);transition:width .3s}
+#loader span{font:500 11px var(--fb);letter-spacing:.16em;text-transform:uppercase;color:#8fa1ab}
+.scene-ready #loader{opacity:0}
+@media (max-width:900px){#loader{justify-content:flex-end;padding-bottom:18vh}}
+.no3d #stage{display:none}
+.no3d #story{background:radial-gradient(1200px 700px at 70% 40%,#2c4252,#0d171d)}
+.vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:
+  radial-gradient(120% 90% at 65% 50%,transparent 45%,rgba(8,14,18,.55) 100%),
+  linear-gradient(90deg,rgba(8,14,18,.72) 0%,rgba(8,14,18,.25) 40%,transparent 60%)}
+@media (max-width:900px){.vignette{background:linear-gradient(180deg,rgba(8,14,18,.55) 0%,rgba(8,14,18,.15) 45%,rgba(8,14,18,.75) 100%)}.hero h1,.hero p.lead{text-shadow:0 2px 18px rgba(0,0,0,.7)}}
+
+#story{position:relative;z-index:2;color:#eaf0f2}
+.step{min-height:100vh;display:flex;align-items:center;padding-block:110px 60px}
+.step .card{max-width:470px;background:rgba(13,23,29,.66);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:30px 30px 26px;
+  opacity:0;transform:translateY(40px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.step.in .card{opacity:1;transform:none}
+.step .num{font:500 13px/1 var(--fm);color:var(--rust2);letter-spacing:.08em}
+.step h2{font-size:clamp(34px,4.4vw,54px);margin:12px 0 14px;color:#fff}
+.step p{margin:0 0 12px;color:#c3d0d6}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:18px}
+.fact{border-top:2px solid var(--rust);padding-top:10px}
+.fact b{display:block;font:700 30px/1 var(--fd);color:#fff}
+.fact span{font-size:12.5px;color:#9fb0ba}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.cmp div{border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px}
+.cmp h3{font-size:20px;color:#fff;margin-bottom:8px}
+.cmp ul{margin:0;padding:0;list-style:none;font-size:13.5px;color:#c3d0d6}
+.cmp li{padding:3px 0;border-bottom:1px dashed rgba(255,255,255,.1)}
+.cmp li:last-child{border:0}
+.cmp .iso{border-color:rgba(233,236,234,.45);background:rgba(233,236,234,.05)}
+.checks{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px}
+.checks li{display:flex;gap:10px;font-size:14.5px;color:#d2dde2}
+.checks li::before{content:"";flex:none;width:18px;height:18px;margin-top:2px;border-radius:50%;background:var(--rust) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E") center/12px no-repeat}
+@media (max-width:900px){
+  .step{align-items:flex-end;padding-bottom:28px}
+  .step .card{max-width:none;width:100%;padding:22px}
+  .facts{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+/* photo plate: HV-transport's own delivery photo, the 3D container is rendered into it */
+#plate{position:fixed;inset:0;z-index:0;background:#cfd5d9 url(assets/hv_plate.jpg) no-repeat;will-change:background-size,background-position}
+body:not(.scene-ready) #plate{display:none}
+#dip{position:fixed;inset:0;z-index:1;background:#f4f6f7;opacity:0;pointer-events:none}
+.nav{background:rgba(13,23,29,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+/* during the scroll story the nav is only a soft shade, so the crane and the sky stay visible behind it */
+body.photo-mode .nav,body.villa-mode .nav,body.final-mode .nav{background:linear-gradient(180deg,rgba(13,23,29,.62),rgba(13,23,29,0));backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
+.vignette{transition:background .6s}
+/* villa steps: text on the right so the container on the left of the driveway stays in view */
+@media (min-width:901px){#story-1 .card,#story-2 .card,#story-3 .card,#story-4 .card{margin-left:auto}}
+/* studio hero (light backdrop) */
+body.studio-mode .vignette{background:linear-gradient(90deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 42%)}
+body.studio-mode .hero p.lead{color:#34414a}
+body.studio-mode .hero .trust{color:#56636c}
+body.studio-mode .hero .btn.ghost{color:#15212a;border-color:rgba(21,33,42,.28);background:rgba(255,255,255,.5)}
+body.studio-mode .hero .pricechip{background:rgba(255,255,255,.75);border-color:rgba(21,33,42,.12)}
+body.studio-mode .hero .pricechip b{color:#15212a}
+body.studio-mode .hero .pricechip span{color:#56636c}
+body.studio-mode .scrollhint{color:#56636c}body.studio-mode .scrollhint i{border-color:#56636c}body.studio-mode .scrollhint i::after{background:#15212a}
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:stretch;padding-block:112px 34px}
+.hero .inner{max-width:none;min-height:calc(100vh - 146px);display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+.hero .hero-top .eyebrow{color:#a8281b}
+.hero .hero-top h1{color:#101a21;font-size:clamp(38px,4.2vw,62px);line-height:1;margin:10px 0 0;text-shadow:0 1px 16px rgba(255,255,255,.45)}
+.hero .hero-top h1 em{color:#b8291c;display:block}
+.hero-bottom{max-width:460px}
+/* villa backdrop: the house and the truck own the upper half, all hero copy sits on the field below the street */
+@media (max-width:900px){
+  .hero .inner{justify-content:flex-start;gap:14px;padding-top:max(0px,calc(var(--field-top,52vh) - 104px + 12px - var(--hero-lift,0px)))}
+  .hero .hero-top .eyebrow{color:#ffb39f}
+  .hero .hero-top h1{color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+  .hero .hero-top h1 em{color:#ff8a70}
+  .hero p.lead,.hero .trust{display:none}
+}
+@media (min-width:901px){
+  .hero .inner{flex-direction:row;justify-content:flex-start;align-items:flex-start;gap:clamp(40px,6vw,96px);padding-top:max(0px,calc(var(--field-top,62vh) - 112px + 18px - var(--hero-lift,0px)))}
+  .hero .hero-top{max-width:600px;order:0}
+  .hero .hero-top .eyebrow{color:#ffb39f}
+  .hero .hero-top h1{color:#fff;text-shadow:0 2px 22px rgba(0,0,0,.55)}
+  .hero .hero-top h1 em{color:#ff8a70}
+  .hero-bottom{max-width:430px}
+  .hero-bottom p.lead{margin-top:0}
+}
+.hero h1{font-size:clamp(52px,8.4vw,112px);color:#fff;font-weight:800;margin:18px 0 20px}
+.hero h1 em{font-style:normal;color:var(--rust2);display:block}
+.hero p.lead{font-size:clamp(16px,1.4vw,18px);color:#e3eaed;max-width:54ch;margin:0 0 18px}
+.pricechip{display:inline-flex;align-items:baseline;gap:10px;flex-wrap:wrap;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 16px;margin-bottom:26px}
+.pricechip b{font:800 34px/1 var(--fd);color:#fff}
+.pricechip span{font-size:14px;color:#b8c6cd}
+.pc-more{font-style:normal}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.trust{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:34px;font-size:13px;color:#9fb0ba}
+.trust span{display:flex;align-items:center;gap:8px}
+.trust span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--rust2)}
+.reveal{opacity:0;transform:translateY(24px);animation:rv .9s var(--ease) forwards}
+@keyframes rv{to{opacity:1;transform:none}}
+.scrollhint{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:40;display:flex;align-items:center;gap:12px;padding:10px 20px 10px 12px;border-radius:999px;background:rgba(13,23,29,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.18);font:600 13px var(--fb);letter-spacing:.08em;text-transform:uppercase;color:#fff;text-decoration:none;box-shadow:0 14px 34px -12px rgba(0,0,0,.55);transition:opacity .4s,transform .4s;animation:hintbob 2.2s ease-in-out infinite}
+.scrollhint{white-space:nowrap}
+.scrollhint b{width:10px;height:10px;border-right:2px solid #ff8a70;border-bottom:2px solid #ff8a70;transform:rotate(45deg) translateY(-3px);animation:hintarrow 1.4s ease-in-out infinite}
+.scrollhint.gone{opacity:0;pointer-events:none;transform:translateX(-50%) translateY(20px)}
+@keyframes hintbob{50%{transform:translateX(-50%) translateY(-5px)}}
+@keyframes hintarrow{50%{transform:rotate(45deg) translate(3px,0px)}}
+.scrollhint i{width:20px;height:32px;border:1.5px solid rgba(255,255,255,.8);border-radius:11px;position:relative;flex:none}
+.scrollhint i::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:#fff;animation:wheel 1.8s infinite}
+@keyframes wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
+@media (max-width:900px){.hero{padding-top:104px}.hero .hero-top h1{font-size:clamp(34px,9.5vw,48px)}.scrollhint{bottom:20px;left:16px;transform:none;animation:none;padding:10px 14px;font-size:12px}.scrollhint span{font-size:0}.scrollhint span::before{content:'Rul ned';font-size:12px}.scrollhint i{display:none}.scrollhint.gone{transform:translateY(20px)}}
+#story-1{align-items:flex-end}
+
+/* progress rail */
+.rail{position:fixed;right:clamp(14px,2.5vw,34px);top:50%;transform:translateY(-50%);z-index:5;display:flex;flex-direction:column;gap:14px;transition:opacity .4s}
+.rail a{display:flex;align-items:center;justify-content:flex-end;gap:10px;text-decoration:none;color:#8fa1ab;font:500 11.5px var(--fm)}
+.rail a span{opacity:0;transform:translateX(6px);transition:.3s}
+.rail a i{width:10px;height:10px;border-radius:50%;border:1.5px solid #8fa1ab;transition:.3s}
+.rail a.on{color:#fff}.rail a.on span{opacity:1;transform:none}
+.rail a.on i{background:var(--rust2);border-color:var(--rust2);transform:scale(1.25)}
+.rail a:hover span{opacity:1;transform:none}
+@media (max-width:900px){.rail{display:none}}
+
+/* solid sections */
+.solid{position:relative;z-index:3;background:var(--paper)}
+.sec{padding-block:clamp(72px,10vw,130px)}
+.sec h2{font-size:clamp(40px,5.6vw,72px);margin:14px 0 18px}
+.sec .intro{font-size:18px;color:var(--muted);max-width:60ch;margin:0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:48px}
+.fade{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.fade.in{opacity:1;transform:none}
+
+/* how it works */
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:s}
+.how article{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;position:relative;overflow:hidden}
+.how article::before{counter-increment:s;content:"0" counter(s);font:800 110px/0.8 var(--fd);color:var(--paper2);position:absolute;right:14px;top:18px}
+.how h3{font-size:28px;margin:70px 0 10px;position:relative}
+.how p{margin:0;color:var(--muted);position:relative}
+.how .ic{width:46px;height:46px;border-radius:12px;background:var(--ink);display:grid;place-items:center;position:relative}
+@media (max-width:860px){.how{grid-template-columns:minmax(0,1fr)}}
+
+/* pricing */
+#pris{background:var(--s800);color:#e7eef1}
+#pris .intro{color:#a9b9c1}
+.pgrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:22px}
+@media (max-width:900px){.pgrid{grid-template-columns:minmax(0,1fr)}}
+.calc{background:var(--s700);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:clamp(20px,3vw,34px)}
+.lbl{font:600 11.5px/1 var(--fb);letter-spacing:.12em;text-transform:uppercase;color:#93a6b0;margin-bottom:10px;display:block}
+.seg{display:inline-flex;background:rgba(0,0,0,.25);border-radius:999px;padding:4px;gap:4px}
+.seg button{border:0;background:transparent;color:#c7d3d9;font:600 14.5px var(--fb);padding:10px 18px;border-radius:999px;cursor:pointer;transition:.25s}
+.seg button[aria-pressed=true]{background:#fff;color:var(--ink)}
+.range{margin-top:26px}
+.range .row{display:flex;justify-content:space-between;align-items:baseline}
+.range output{font:700 26px var(--fd);color:#fff}
+input[type=range]{width:100%;margin:14px 0 6px;accent-color:var(--rust2);height:28px}
+.presets{display:flex;gap:8px;flex-wrap:wrap}
+.presets button{background:transparent;border:1px solid rgba(255,255,255,.18);color:#c7d3d9;border-radius:999px;padding:6px 12px;font:500 13px var(--fb);cursor:pointer}
+.presets button:hover{border-color:var(--rust2);color:#fff}
+.receipt{margin-top:26px;border-top:1px dashed rgba(255,255,255,.2)}
+.receipt .ln{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed rgba(255,255,255,.12);font-size:15px;color:#c7d3d9}
+.receipt .ln b{font:500 15px var(--fm);color:#fff;white-space:nowrap}
+.receipt .ln small{display:block;color:#8397a1;font-size:12.5px}
+.total{display:flex;justify-content:space-between;align-items:end;gap:12px;padding-top:18px}
+.total span{font:600 12px var(--fb);letter-spacing:.12em;text-transform:uppercase;color:#93a6b0}
+.total b{font:800 clamp(46px,6vw,64px)/.9 var(--fd);color:#fff;font-variant-numeric:tabular-nums}
+.total small{display:block;color:#93a6b0;font-size:13px;margin-top:6px;text-align:right}
+.pside{display:flex;flex-direction:column;gap:14px}
+.pbox{border-radius:22px;padding:26px;background:linear-gradient(160deg,var(--rust),#8f2f1f);color:#fff;position:relative;overflow:hidden}
+.pbox h3{font-size:36px;margin-bottom:10px}
+.pbox p{margin:0 0 6px;color:#ffe6dc}
+.pbox .big{font:800 72px/.9 var(--fd);margin:8px 0 4px}
+.pbox::after{content:"";position:absolute;right:-40px;bottom:-40px;width:180px;height:180px;border-radius:50%;border:28px solid rgba(255,255,255,.08)}
+.examples{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.examples div{background:var(--s700);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px}
+.examples b{display:block;font:700 26px/1 var(--fd);color:#fff}
+.examples span{font-size:12.5px;color:#93a6b0}
+.note{font-size:13px;color:#8fa1ab;line-height:1.5}
+.note a{color:#fff}
+
+/* audiences */
+.aud{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;perspective:1200px}
+.aud article{grid-column:span 2;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;transform-style:preserve-3d;transition:transform .2s ease-out,box-shadow .3s;will-change:transform;position:relative;overflow:hidden}
+.aud article:nth-child(4),.aud article:nth-child(5){grid-column:span 3}
+.aud article:hover{box-shadow:0 30px 60px -30px rgba(21,33,42,.45)}
+.aud .tag{font:600 11px var(--fb);letter-spacing:.12em;text-transform:uppercase;color:var(--rust)}
+.aud h3{font-size:30px;margin:10px 0 10px}
+.aud blockquote{margin:0 0 14px;font:600 18px/1.35 var(--fb);color:var(--ink)}
+.aud p{margin:0;color:var(--muted);font-size:14.5px}
+.aud .glyph{position:absolute;right:18px;top:18px;opacity:.9;transform:translateZ(40px)}
+@media (max-width:900px){.aud{grid-template-columns:minmax(0,1fr)}.aud article,.aud article:nth-child(4),.aud article:nth-child(5){grid-column:auto}}
+
+/* business */
+#erhverv,#bundle,#sametur{background:var(--s900);color:#e7eef1;overflow:hidden}
+#erhverv .intro,#bundle .intro,#sametur .intro{color:#a9b9c1}
+.bgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+@media (max-width:900px){.bgrid{grid-template-columns:minmax(0,1fr)}}
+.bundle{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.bundle div{border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px;background:rgba(255,255,255,.03);transition:.3s}
+.bundle div:hover{border-color:var(--rust2);background:rgba(227,104,63,.07)}
+.bundle b{display:block;font:700 22px/1.05 var(--fd);text-transform:uppercase;color:#fff;margin-bottom:6px}
+.bundle span{font-size:13.5px;color:#a9b9c1}
+.bundle .hl{grid-column:1/-1;background:linear-gradient(120deg,rgba(194,74,50,.25),rgba(194,74,50,.05));border-color:rgba(227,104,63,.5)}
+.bigquote{font:800 clamp(40px,5.4vw,70px)/.95 var(--fd);text-transform:uppercase;color:#fff;margin:14px 0 22px}
+.bigquote span{color:var(--rust2)}
+.spec{margin:26px 0;border-top:1px solid rgba(255,255,255,.12)}
+.spec div{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:14.5px;color:#c7d3d9}
+.spec dt,.spec b{font:600 12px var(--fb);letter-spacing:.1em;text-transform:uppercase;color:#93a6b0;padding-top:2px}
+
+/* map */
+.mgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:40px;align-items:center}
+@media (max-width:900px){.mgrid{grid-template-columns:minmax(0,1fr)}}
+.mapwrap{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:10px;position:relative}
+#map{width:100%;height:auto}
+#map .town circle{fill:var(--ink)}
+#map .town text{font:500 12px var(--fb);fill:var(--ink)}
+#map .town.first circle{fill:var(--rust)}
+#map .town.first text{font-weight:600}
+#map .ring{fill:none;stroke:var(--line);stroke-dasharray:3 5}
+#map .rl{font:500 10.5px var(--fm);fill:var(--muted)}
+#map .hq circle.p{fill:var(--rust);opacity:.35;transform-origin:center;transform-box:fill-box;animation:pulse 2.4s infinite}
+@keyframes pulse{0%{transform:scale(.6);opacity:.55}100%{transform:scale(3.2);opacity:0}}
+.towns{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.towns a{text-decoration:none;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 13px;font-size:14px;transition:.2s}
+.towns a:hover{border-color:var(--rust);color:var(--rust)}
+
+/* faq */
+#faq{background:var(--paper2)}
+.fgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:40px}
+@media (max-width:900px){.fgrid{grid-template-columns:minmax(0,1fr)}}
+details.q{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+details.q summary{list-style:none;cursor:pointer;padding:18px 20px;font-weight:600;display:flex;justify-content:space-between;gap:16px;align-items:center}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary::after{content:"+";font:400 26px/1 var(--fb);color:var(--rust);transition:transform .3s}
+details.q[open] summary::after{transform:rotate(45deg)}
+details.q div{padding:0 20px 18px;color:var(--muted)}
+.aicard{background:var(--ink);color:#e7eef1;border-radius:20px;padding:26px;position:sticky;top:110px}
+.aicard h3{font-size:30px;margin:10px 0 8px;color:#fff}
+.aicard p{color:#a9b9c1;margin:0 0 18px;font-size:15px}
+
+/* about */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:10px}
+.stats div{border-top:3px solid var(--ink);padding-top:14px}
+.stats b{display:block;font:800 clamp(48px,6vw,80px)/.9 var(--fd);font-variant-numeric:tabular-nums}
+.stats span{color:var(--muted);font-size:14px}
+@media (max-width:760px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.awards{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px}
+.awards span{display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:9px 16px 9px 10px;font-weight:500;font-size:14px}
+.awards i{width:26px;height:26px;border-radius:50%;background:var(--rust);display:grid;place-items:center}
+
+/* cta + footer */
+.final{background:var(--rust);color:#fff;position:relative;overflow:hidden}
+.final h2{color:#fff}
+.final .intro{color:#ffe3d8}
+.final .ctas{margin-top:28px}
+.final .btn.primary{background:#fff;color:var(--rust);box-shadow:none}
+.final .stripes{position:absolute;inset:auto -10% -60px auto;width:60%;height:200px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.08) 0 18px,transparent 18px 36px);transform:skewY(-6deg)}
+footer{background:var(--s900);color:#9fb0ba;font-size:14px;position:relative;z-index:3}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;padding-block:60px 30px}
+footer h4{color:#fff;font:700 16px var(--fd);letter-spacing:.06em;text-transform:uppercase;margin:0 0 12px}
+footer p{margin:0 0 6px}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.08);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px}
+footer .wrap>*{min-width:0}footer a{overflow-wrap:anywhere}
+@media (max-width:820px){footer .wrap{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){footer .wrap{grid-template-columns:minmax(0,1fr)}}
+
+/* chat */
+.fab{position:fixed;right:20px;bottom:20px;z-index:70;display:flex;align-items:center;gap:10px;background:var(--ink);color:#fff;border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:12px 18px 12px 12px;font:600 14.5px var(--fb);cursor:pointer;box-shadow:0 18px 40px -12px rgba(0,0,0,.5);transition:transform .25s var(--ease)}
+.fab:hover{transform:translateY(-3px)}
+.fab i{width:30px;height:30px;border-radius:50%;background:var(--rust);display:grid;place-items:center}
+.chat{position:fixed;right:20px;bottom:84px;z-index:71;width:min(390px,calc(100vw - 32px));height:min(580px,calc(100vh - 140px));background:#fff;border-radius:20px;box-shadow:0 30px 80px -20px rgba(0,0,0,.55);display:flex;flex-direction:column;overflow:hidden;transform-origin:bottom right;transform:scale(.9) translateY(20px);opacity:0;pointer-events:none;transition:.3s var(--ease)}
+.chat.open{transform:none;opacity:1;pointer-events:auto}
+.chat header{background:var(--ink);color:#fff;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.chat header b{font:700 20px var(--fd);text-transform:uppercase;letter-spacing:.02em}
+.chat header small{display:block;color:#d3dde3;font-size:12.5px;margin-top:2px}
+.chat header .hbtns{display:flex;align-items:center;gap:6px}
+.chat header .spk{font-size:0;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.22)}
+.chat header .spk[aria-pressed=true]{background:var(--rust);border-color:var(--rust)}
+.chat header button{background:transparent;border:0;color:#fff;font-size:24px;cursor:pointer;line-height:1}
+.log{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;background:#f6f4ef}
+.msg{max-width:88%;padding:10px 13px;border-radius:14px;font-size:14.5px;line-height:1.45;white-space:pre-wrap;overflow-wrap:anywhere;color:#15212a}
+.msg.bot{background:#fff;border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:4px}
+.msg.user{background:var(--rust);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.msg.typing{color:#5b6770}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px;background:#f6f4ef;border-top:1px solid var(--line)}
+.chips button{flex:none;border:1px solid #d6d1c6;background:#fff;color:#15212a;border-radius:999px;padding:6px 11px;font:500 12.5px var(--fb);cursor:pointer}
+.chips button:hover{border-color:var(--rust)}
+.cform{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line)}
+.cform input{flex:1;min-width:0;border:1px solid #d6d1c6;border-radius:999px;padding:11px 14px;font:15px var(--fb);color:#15212a;background:#fff}
+.cform input::placeholder{color:#6b7780}
+.cform .mic{flex:none;width:44px;padding:0;display:grid;place-items:center;background:#15212a}
+.cform .mic.rec{background:var(--rust);animation:micpulse 1.2s ease-in-out infinite}
+@keyframes micpulse{50%{box-shadow:0 0 0 7px rgba(184,41,28,.18)}}
+.cform button{border:0;background:var(--rust);color:#fff;border-radius:999px;padding:0 16px;font:600 14px var(--fb);cursor:pointer}
+.chat .disc{font-size:11.5px;line-height:1.4;color:#56636c;padding:0 14px 10px;text-align:center}
+
+/* ---------- main menu: crisp solid bar, dropdowns, search ---------- */
+.nav,.nav.scrolled,body.photo-mode .nav,body.villa-mode .nav,body.final-mode .nav{background:rgba(12,20,26,.9);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);box-shadow:0 1px 0 rgba(255,255,255,.08)}
+.nav .wrap{gap:18px}
+.nav ul.menu{gap:4px;align-items:center}
+.nav ul.menu>li{position:relative}
+.nav ul.menu a.top{display:flex;align-items:center;gap:6px;color:#fff;font:600 15px/1 var(--fb);letter-spacing:.005em;padding:12px 11px;border-radius:10px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.nav ul.menu a.top svg{opacity:.7;transition:transform .2s}
+.nav ul.menu li:hover a.top,.nav ul.menu li:focus-within a.top{background:rgba(255,255,255,.1)}
+.nav ul.menu li:hover a.top svg,.nav ul.menu li:focus-within a.top svg{transform:rotate(180deg)}
+.ddp{position:absolute;left:0;top:calc(100% + 8px);min-width:290px;background:#fff;border-radius:14px;padding:8px;box-shadow:0 24px 60px -16px rgba(0,0,0,.45),0 0 0 1px rgba(21,33,42,.06);opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s,transform .18s,visibility .18s}
+.ddp::before{content:"";position:absolute;left:0;right:0;top:-10px;height:10px}
+.nav ul.menu li:hover .ddp,.nav ul.menu li:focus-within .ddp{opacity:1;visibility:visible;transform:none}
+.ddp a{display:block;padding:10px 12px;border-radius:9px;text-decoration:none;color:#15212a}
+.ddp a:hover,.ddp a:focus{background:#f4f1ea;outline:none}
+.ddp b{display:block;font:600 14.5px/1.3 var(--fb);color:#15212a}
+.ddp small{display:block;font-size:12.5px;line-height:1.35;color:#56636c;margin-top:2px}
+.nsearch{position:relative;display:flex;align-items:center;gap:8px;height:42px;padding:0 12px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;transition:background .2s,border-color .2s}
+.nsearch:focus-within{background:#fff;color:#15212a;border-color:#fff}
+.nsearch input{width:190px;border:0;outline:0;background:transparent;color:inherit;font:500 14px var(--fb);transition:width .25s}
+.nsearch input::placeholder{color:rgba(255,255,255,.75)}
+.nsearch:focus-within input{width:250px}
+.nsearch:focus-within input::placeholder{color:#6b7780}
+.nsearch input::-webkit-search-cancel-button{display:none}
+.nres{position:absolute;right:0;top:calc(100% + 8px);width:360px;max-height:60vh;overflow:auto;background:#fff;border-radius:14px;padding:6px;box-shadow:0 24px 60px -16px rgba(0,0,0,.45);display:none}
+.nres.show{display:block}
+.nres a{display:block;padding:10px 12px;border-radius:9px;text-decoration:none;color:#15212a}
+.nres a:hover,.nres a.sel{background:#f4f1ea}
+.nres a b{display:block;font:600 14px/1.3 var(--fb)}
+.nres a small{display:block;font-size:12.5px;color:#56636c;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nres .ask b{color:#b8291c}
+.nav a,.nav .btn,.nav .tel{white-space:nowrap}
+.nav .logo img{height:40px;width:auto}
+@media (max-width:1560px){.nav .tel{display:none}.nsearch input{width:150px}.nsearch:focus-within input{width:220px}}
+@media (max-width:1300px){.nav ul.menu a.top{padding:12px 8px;font-size:14.5px}.nsearch input{width:110px}}
+@media (min-width:901px){.hero .trust{display:none}}
+@media (max-width:1120px){.nsearch input{width:0;padding:0}.nsearch{padding:0 12px}.nsearch:focus-within input{width:180px}}
+@media (max-width:560px){.nsearch{height:38px;padding:0 10px}.nsearch:focus-within{position:absolute;left:12px;right:12px;z-index:3}.nsearch:focus-within input{width:100%}.nres{left:0;right:0;width:auto}}
+
+/* hero call to action straight under the headline */
+.herocta{display:flex;align-items:center;flex-wrap:wrap;gap:14px 18px;margin-top:26px}
+.btn.big{padding:18px 30px;font-size:18px;font-weight:700;border-radius:999px;box-shadow:0 16px 40px -10px rgba(194,74,50,.75),0 0 0 0 rgba(227,104,63,.5);animation:ctaglow 2.8s ease-in-out infinite}
+.btn.big:hover{transform:translateY(-2px)}
+.btn.big .arr{display:inline-block;transition:transform .2s}.btn.big:hover .arr{transform:translateX(4px)}
+@keyframes ctaglow{50%{box-shadow:0 16px 40px -10px rgba(194,74,50,.75),0 0 0 8px rgba(227,104,63,0)}0%{box-shadow:0 16px 40px -10px rgba(194,74,50,.75),0 0 0 0 rgba(227,104,63,.45)}}
+.herocta .note{display:flex;align-items:center;gap:8px;color:#fff;font:500 14px var(--fb);text-shadow:0 1px 10px rgba(0,0,0,.6)}
+.herocta .note i{width:8px;height:8px;border-radius:50%;background:#5fd08a;box-shadow:0 0 0 4px rgba(95,208,138,.22)}
+@media (max-width:900px){.btn.big{padding:15px 24px;font-size:16px}.herocta{margin-top:16px}}
+@media (prefers-reduced-motion:reduce){.btn.big{animation:none}}
+
+/* one shared film grain over plate + 3D, so the rendered truck and the photo share the same texture */
+.grain{position:fixed;inset:-50%;z-index:2;pointer-events:none;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 1.6 -.3'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");animation:grainshift .6s steps(3) infinite}
+@keyframes grainshift{0%{transform:translate(0,0)}33%{transform:translate(-3%,2%)}66%{transform:translate(2%,-3%)}}
+@media (prefers-reduced-motion:reduce){.grain{animation:none}}
+
+/* phones and tablets: burger opens the same menu as a full-width sheet, dropdowns become accordions */
+.burger{display:none;width:42px;height:42px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;padding:0}
+.burger i{display:block;width:18px;height:2px;border-radius:2px;background:#fff;transition:transform .25s,opacity .25s}
+.nav.open .burger i:nth-child(1){transform:translateY(7px) rotate(45deg)}.nav.open .burger i:nth-child(2){opacity:0}.nav.open .burger i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:1120px){
+  .burger{display:flex}
+  .nav .wrap{position:relative}
+  .nav ul.menu{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;background:#0f1a21;border-radius:0 0 18px 18px;padding:8px 12px 16px;max-height:calc(100vh - 110px);overflow:auto;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+  .nav.open ul.menu{display:flex}
+  .nav ul.menu a.top{justify-content:space-between;padding:15px 8px;font-size:17px;border-bottom:1px solid rgba(255,255,255,.08);border-radius:0;background:none!important}
+  .nav ul.menu li:hover a.top svg,.nav ul.menu li:focus-within a.top svg{transform:none}
+  .nav ul.menu li.exp a.top svg{transform:rotate(180deg)}
+  .ddp,.nav ul.menu li:hover .ddp,.nav ul.menu li:focus-within .ddp{position:static;display:none;opacity:1;visibility:visible;transform:none;box-shadow:none;min-width:0;margin:8px 0 6px;background:#fff}
+  .nav ul.menu li.exp .ddp{display:block}
+}
+@media (max-width:560px){.nav .btn.primary{display:none}}
+.pbox .zone{margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.22);font-size:14px;line-height:1.45}
+
+/* address-driven live price */
+.adr{position:relative;display:flex;align-items:center;gap:10px;background:#fff;color:#15212a;border-radius:14px;padding:0 14px;height:54px;box-shadow:0 0 0 3px rgba(227,104,63,0);transition:box-shadow .2s}
+.adr:focus-within{box-shadow:0 0 0 3px rgba(227,104,63,.55)}
+.adr svg{flex:none;color:#c24a32}
+.adr input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:500 16px var(--fb);color:#15212a}
+.adr input::placeholder{color:#6b7780}
+.adrl{list-style:none;margin:0;padding:6px;position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border-radius:14px;box-shadow:0 24px 50px -14px rgba(0,0,0,.55);z-index:5;display:none;max-height:300px;overflow:auto}
+.adrl.show{display:block}
+.adrl li{padding:10px 12px;border-radius:9px;cursor:pointer;font-size:14.5px;color:#15212a}
+.adrl li:hover,.adrl li.sel{background:#f4f1ea}
+.adrl li small{display:block;color:#6b7780;font-size:12px}
+#adrbox2{margin-top:10px}
+.zonetag{display:flex;align-items:center;gap:8px;margin-top:10px;font:600 13.5px var(--fb);color:#fff}
+.zonetag i{width:9px;height:9px;border-radius:50%;flex:none}
+.zonetag.in i{background:#5fd08a;box-shadow:0 0 0 4px rgba(95,208,138,.22)}
+.zonetag.out i{background:#f2b33d;box-shadow:0 0 0 4px rgba(242,179,61,.22)}
+.zonetag.far i{background:#e0584a}
+.zonetag small{font-weight:500;color:#a9b9c1}
+.movechk{display:flex;align-items:flex-start;gap:10px;margin-top:14px;color:#c7d3d9;font-size:14.5px;cursor:pointer}
+.movechk input{width:18px;height:18px;accent-color:var(--rust2);margin-top:2px}
+.movechk small{color:#8397a1}
+.pstatus{margin-top:10px;font-size:12.5px;color:#93a6b0;text-align:right}
+.pstatus b{color:#f2b33d;font-weight:600}
+.pstatus b.ok{color:#5fd08a}
+.draftnote{margin-top:8px;padding:8px 12px;border-radius:10px;background:rgba(242,179,61,.12);color:#f2c46b!important;font-size:12.5px}
+
+/* business pointer on the private campaign page (B2B gets its own landing page) */
+.b2bband{padding-block:clamp(40px,6vw,72px)!important}
+.b2bin{display:flex;align-items:center;justify-content:space-between;gap:28px 48px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:22px;padding:clamp(22px,3.5vw,40px)}
+.b2bin h2{font-size:clamp(28px,3.4vw,40px);margin:6px 0 10px;color:var(--ink)}
+.b2bin .eyebrow{color:var(--rust)}
+.b2bin p{max-width:60ch;margin:0;color:var(--muted)}
+.b2bin .ctas{margin:0}
+.b2bin .btn.ghost{color:var(--ink);border-color:rgba(21,33,42,.25)}
+
+/* hero is pinned for the first stretch of scrolling: the truck height draws in first, then the copy moves on */
+.hero{min-height:0;height:calc(100vh + 42vh);padding:0!important;display:block}
+.hero>.wrap{position:sticky;top:0;height:100vh;box-sizing:border-box;padding-block:112px 34px;display:flex;align-items:stretch}
+@media (max-width:900px){.hero>.wrap{padding-top:104px}}
+
+/* hero copy: larger, higher contrast on the field */
+/* scene shading: two fixed layers whose opacity follows the scroll (set by scene.js) – no hard jumps between story steps */
+.vignette{background:none!important}
+.shade{position:fixed;inset:0;z-index:1;pointer-events:none;will-change:opacity}
+.shade-hero{background:linear-gradient(0deg,rgba(8,14,18,.9) 0%,rgba(8,14,18,.72) 32%,rgba(8,14,18,.3) 46%,rgba(8,14,18,0) 56%);opacity:var(--sh-hero,1)}
+.shade-cards{background:linear-gradient(270deg,rgba(8,14,18,.62) 0%,rgba(8,14,18,.18) 38%,transparent 58%);opacity:var(--sh-cards,0)}
+@media (max-width:900px){.shade-cards{background:linear-gradient(0deg,rgba(8,14,18,.7) 0%,rgba(8,14,18,.2) 45%,transparent 65%)}}
+.hero .hero-top .eyebrow{display:inline-block;font:700 clamp(13px,1.05vw,16px)/1.2 var(--fb);letter-spacing:.08em;color:#fff;background:rgba(12,20,26,.62);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:9px 16px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.hero .hero-top h1{font-size:clamp(40px,4.4vw,72px)!important;line-height:.98;margin-top:16px;text-shadow:0 3px 24px rgba(0,0,0,.6)}
+.hero p.lead{font-size:clamp(17px,1.45vw,21px);line-height:1.5;color:#fff;font-weight:500;text-shadow:0 2px 14px rgba(0,0,0,.65)}
+.hero .pricechip{background:rgba(12,20,26,.58);border-color:rgba(255,255,255,.2);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:14px 18px}
+.hero .pricechip b{font-size:clamp(34px,3vw,44px)}
+.hero .pricechip span{font-size:15px;color:#e6edf0}
+.hero .ctas .btn.ghost{background:rgba(12,20,26,.5);border-color:rgba(255,255,255,.35);color:#fff}
+.herocta .note{font-size:15px}
+@media (max-width:900px){.hero .hero-top .eyebrow{font-size:12px;padding:7px 12px}.hero .hero-top h1{font-size:clamp(36px,10vw,50px)!important}}
+
+@media (min-width:901px){
+  .hero .inner{gap:clamp(32px,4vw,64px)!important}
+  .hero .hero-top{max-width:none;flex:0 1 auto;min-width:0}
+  .hero .hero-top .eyebrow{white-space:nowrap}
+  .hero .hero-top h1 em{white-space:nowrap}
+  .hero-bottom{max-width:420px;flex:0 1 420px}
+}
+
+/* ---------- consent + legal ---------- */
+.cc{position:fixed;left:16px;bottom:16px;z-index:90;max-width:560px;width:calc(100vw - 32px)}
+.cc-in{background:#fff;color:#15212a;border-radius:18px;padding:20px 22px;box-shadow:0 30px 70px -20px rgba(0,0,0,.6),0 0 0 1px rgba(21,33,42,.08)}
+.cc h2{font:700 20px/1.2 var(--fb);margin:0 0 8px;letter-spacing:0;text-transform:none}
+.cc p{margin:0;font-size:14.5px;line-height:1.5;color:#34414a}
+.cc a{color:#b8291c}
+.cc-opts{display:grid;gap:10px;margin:14px 0 2px}
+.cc-opts[hidden],.ccb[hidden]{display:none}
+.cc-opts label{display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer}
+.cc-opts input{width:18px;height:18px;margin-top:2px;accent-color:#c24a32}
+.cc-opts small{display:block;color:#56636c;font-size:12.5px}
+.cc-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.ccb{flex:1 1 120px;border:1.5px solid #15212a;background:#fff;color:#15212a;border-radius:999px;padding:11px 16px;font:600 14.5px var(--fb);cursor:pointer}
+#cc-yes,#cc-no{background:#15212a;color:#fff}          /* accept and reject carry equal weight (Datatilsynet) */
+.ccb:focus-visible{outline:3px solid #e3683f;outline-offset:2px}
+.adrnote{margin:8px 2px 0;font-size:12.5px;line-height:1.45;color:#93a6b0}
+.adrnote a{color:#f2b39f}
+.chat .disc a{color:inherit;text-decoration:underline}
+footer .legal{flex-wrap:wrap;gap:8px 24px}
+footer .legal-links{display:flex;flex-wrap:wrap;gap:6px 16px}
+footer .legal-links a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.micok{background:#fff8e6;border:1px solid #f0d9a0;border-radius:12px;padding:10px 12px;font-size:13.5px;line-height:1.45;color:#15212a;align-self:stretch}
+.micok div{display:flex;gap:8px;margin-top:8px}
+.micok button{border:0;border-radius:999px;padding:7px 12px;font:600 13px var(--fb);cursor:pointer;background:#15212a;color:#fff}
+.micok button+button{background:#e8e3d8;color:#15212a}
+.nav ul.menu li.biz{margin-left:6px;padding-left:10px;border-left:1px solid rgba(255,255,255,.18)}
+@media (max-width:1120px){.nav ul.menu li.biz{margin:0;padding:0;border:0}}
+.ddp{right:auto}.nav ul.menu li.biz .ddp{left:auto;right:0}
+
+/* add-ons: more on the same truck (Sandshoppen / waste) */
+.addons .lbl small{font-weight:500;letter-spacing:.04em;text-transform:none;color:#8397a1}
+.addnote{margin:0 0 10px;font-size:13.5px;line-height:1.45;color:#a9b9c1}
+.chipsel{display:flex;flex-wrap:wrap;gap:8px}
+.chipsel label{cursor:pointer}
+.chipsel input{position:absolute;opacity:0;pointer-events:none}
+.chipsel span{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:8px 14px;font:500 14px var(--fb);color:#c7d3d9;transition:.2s}
+.chipsel span::before{content:"+";font-weight:700;color:#e3683f}
+.chipsel input:checked+span{background:#fff;color:var(--ink);border-color:#fff}
+.chipsel input:checked+span::before{content:"✓"}
+.chipsel input:focus-visible+span{outline:3px solid #e3683f;outline-offset:2px}
+.receipt.combo{margin-top:0;border-top:0}
+.receipt .ln.good b{color:#5fd08a}
+.qty .seg button{min-width:52px}
+/* one hauler – three services strip */
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px}
+.trio a{display:block;text-decoration:none;color:inherit;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:16px 18px;transition:.2s}
+.trio a:hover{border-color:rgba(227,104,63,.6);transform:translateY(-2px)}
+.trio b{display:block;font:700 18px var(--fd);letter-spacing:.02em;text-transform:uppercase;color:#fff}
+.trio span{display:block;font-size:13.5px;color:#a9b9c1;margin-top:4px}
+.trio .cur{border-color:rgba(227,104,63,.55);background:rgba(227,104,63,.1)}
+.triohead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-top:34px}
+.triohead h3{margin:0;font:700 22px var(--fd);text-transform:uppercase;color:#fff}
+.triohead p{margin:0;color:#a9b9c1;font-size:14.5px}
+@media (max-width:700px){.trio{grid-template-columns:1fr}}
+.sametrip{margin:14px 0 0;padding:10px 12px;border-radius:12px;background:rgba(227,104,63,.14);font-size:14px;line-height:1.45}
+.sametrip b{color:#ff9a80}
+
+/* sustainability in the hero: HV's awards, visible from the first second */
+.hawards{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.hawards span{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(12,20,26,.62);border:1px solid rgba(127,216,158,.45);color:#fff;font:600 14px var(--fb);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);white-space:nowrap}
+@media (max-width:900px){.hawards span{font-size:11.5px;padding:6px 10px}}
+.bundle .hl.retur{background:linear-gradient(120deg,rgba(95,208,138,.2),rgba(95,208,138,.04));border-color:rgba(127,216,158,.55)}
+.bundle .hl.retur b{color:#b6f0c9}
+
+/* hero: bundle discount strip (amount filled from pricing.json) */
+.bundlechip{display:flex;align-items:center;gap:12px;margin:-14px 0 22px;padding:11px 14px;border-radius:14px;text-decoration:none;color:#fff;background:linear-gradient(120deg,rgba(95,208,138,.26),rgba(12,20,26,.6));border:1px solid rgba(127,216,158,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:transform .2s,border-color .2s}
+.bundlechip:hover{transform:translateY(-2px);border-color:#7fd89e}
+.bundlechip i{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#5fd08a;color:#0c141a;font:800 18px/1 var(--fb);font-style:normal}
+.bundlechip span{font-size:14px;line-height:1.4;color:#e6edf0}
+.bundlechip b{display:block;font:700 15px var(--fb);color:#fff}
+.bundlechip em{font-style:normal;font-weight:700;color:#b6f0c9}
+.bundlechip s{margin-left:auto;text-decoration:none;color:#b6f0c9;font-weight:700}
+@media (max-width:900px){.bundlechip{margin:4px 0 12px}.bundlechip span{font-size:13px}}
+.movenote{margin:8px 2px 0;font-size:13px;line-height:1.45;color:#f2c46b}
+
+@media (max-width:900px){.hero .hawards{display:none}.hero .ctas.reveal{display:none}.hero .hero-bottom .pricechip{margin-bottom:10px}}
+body.hero-compact .hero p.lead,body.hero-compact .hero .hero-bottom .ctas{display:none}
+body.hero-compact .hero .hero-bottom{padding-top:6px}
+.bundlechip .bc-short{display:none}
+@media (max-width:900px){body.hero-compact .bundlechip .bc-long{display:none}body.hero-compact .bundlechip .bc-short{display:block}body.hero-compact .bundlechip{padding:8px 12px}body.hero-compact .bundlechip i{width:24px;height:24px;font-size:16px}
+  body.hero-compact .hero .hero-top .eyebrow,body.hero-compact .herocta .note,body.hero-compact .pc-more{display:none}body.hero-compact .herocta{margin-top:12px}
+  body.hero-compact .hero .hero-top h1{font-size:clamp(30px,8.6vw,42px)!important}body.hero-compact .hero .pricechip{padding:10px 14px}body.hero-compact .hero .pricechip b{font-size:30px}}
+.herocta .btn.ghost{background:rgba(12,20,26,.55);border:1px solid rgba(255,255,255,.35);color:#fff;padding:14px 20px}
+@media (max-width:900px){.herocta .btn.ghost{padding:11px 14px;font-size:14px}}
+
+/* short desktop screens: scale the hero copy with the screen height so everything stays on the first screen */
+@media (min-width:901px) and (max-height:900px){
+  .hero .hero-top h1{font-size:clamp(40px,7vh,72px)!important;margin-top:10px}
+  .herocta{margin-top:16px}.hawards{margin-top:12px}
+  .hero .hero-top .eyebrow{padding:7px 14px;font-size:13px}
+  .hero .pricechip{padding:10px 14px}.hero .pricechip b{font-size:34px}
+  .scrollhint{bottom:12px;padding:8px 16px 8px 10px}
+}
+</style>
+</head>
+<body data-page="privat">
+
+<div class="draft" role="note">Designudkast til HV-transport · ikke live · priser fra containerudlejning.dk, september 2026</div>
+
+<nav class="nav" id="nav" aria-label="Hovedmenu">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="containerudlejning.dk – forside"><img src="img/logo-white.png" alt="containerudlejning.dk" width="196" height="48"></a>
+    <ul class="menu">
+      <li class="dd"><a href="#story-1" class="top" aria-haspopup="true">Container<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><div class="ddp" role="menu"><a href="#story-2"><b>Standardcontainer</b><small>20 fod · 33 m³ · ca. 270 flyttekasser</small></a><a href="#story-2"><b>Isoleret container</b><small>29 m³ · mindre kondens, godt til møbler</small></a><a href="#story-5"><b>Til flytning</b><small>Pak i eget tempo – vi kører den fyldte container</small></a><a href="#hvem"><b>Til renovering</b><small>Indbo i sikkerhed, mens der bygges om</small></a><a href="#faq"><b>Lås og sikkerhed</b><small>Godkendte containerlåse</small></a></div></li>
+      <li class="dd"><a href="#pris" class="top" aria-haspopup="true">Priser<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><div class="ddp" role="menu"><a href="#pris"><b>Prisberegner</b><small>Se prisen for din adresse med det samme</small></a><a href="#pris"><b>Fast lokalpris</b><small>3.000 kr. i Herning, Ikast og Sunds</small></a><a href="#pris"><b>Dagspris derefter</b><small>28 kr. standard · 33 kr. isoleret</small></a><a href="#sametur"><b>Samme tur</b><small>Affald, sand og muld med samme bil</small></a></div></li>
+      <li class="dd"><a href="#omraade" class="top" aria-haspopup="true">Levering<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><div class="ddp" role="menu"><a href="#omraade"><b>Område</b><small>Herning og Midtjylland · typisk 1–3 hverdage</small></a><a href="#faq"><b>Adgangskrav</b><small>3,5 m bred og 4 m høj vej</small></a><a href="#faq"><b>Underlag</b><small>Fast og plant – eller fundament på græs</small></a><a href="#story-4"><b>Bestil afhentning</b><small>Online, på mail eller telefon</small></a></div></li>
+      <li class="dd"><a href="#faq" class="top" aria-haspopup="true">Spørgsmål<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><div class="ddp" role="menu"><a href="#chat" data-open-chat-link><b>Spørg AI-assistenten</b><small>Svar med det samme – også efter lukketid</small></a><a href="#faq"><b>Ofte stillede spørgsmål</b><small>Priser, placering, forsikring</small></a><a href="#om"><b>Kontakt</b><small>Man–tors 8–16 · fre 8–14</small></a></div></li>
+      <li class="dd"><a href="#om" class="top" aria-haspopup="true">Om os<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><div class="ddp" role="menu"><a href="#om"><b>HV-transport</b><small>Vognmand i Herning siden 1946</small></a><a href="#om"><b>Sandshoppen</b><small>Sand, grus og muld med samme bil</small></a><a href="#om"><b>Kontakt</b><small>Mørupvej 37 · 7400 Herning</small></a></div></li>
+      <li class="dd biz"><a href="erhverv.html" class="top" aria-haspopup="true">Erhverv<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><div class="ddp" role="menu"><a href="erhverv.html#story-1"><b>Container til byggepladsen</b><small>Aflåst lager til værktøj og materialer</small></a><a href="erhverv.html#pris"><b>Erhvervspriser</b><small>Ekskl. moms · månedspris ved lang leje</small></a><a href="erhverv.html#bundle"><b>Samme bil, samme faktura</b><small>Med affald, grus og kran</small></a><a href="erhverv.html#koeb"><b>Køb en container</b><small>Brugte 20-fods på bestilling</small></a><a href="erhverv.html#tilbud"><b>Få et tilbud</b><small>Svar inden for en arbejdsdag</small></a></div></li>
+    </ul>
+    <form class="nsearch" id="nsearch" role="search" autocomplete="off"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="nsq" type="search" placeholder="Søg – fx pris, størrelse, levering" aria-label="Søg på siden"><div class="nres" id="nres" role="listbox"></div></form>
+    <div class="right">
+      <button class="burger" type="button" id="burger" aria-label="Åbn menu" aria-expanded="false"><i></i><i></i><i></i></button>
+      <a class="tel" href="tel:+4597122323">97 12 23 23</a>
+      <a class="btn primary" href="#pris">Book container</a>
+    </div>
+  </div>
+</nav>
+
+<div id="plate" aria-hidden="true"></div>
+<div id="dip" aria-hidden="true"></div>
+<canvas id="stage" aria-hidden="true"></canvas>
+<div id="loader" aria-hidden="true"><img src="img/logo-white.png" alt=""><div class="lbar"><i id="loader-bar"></i></div><span>Henter 3D-scene</span></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="shade shade-hero" aria-hidden="true"></div>
+<div class="shade shade-cards" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<nav class="rail" id="rail" aria-label="Trin i fortællingen">
+  <a href="#top" data-i="0"><span>Start</span><i></i></a>
+  <a href="#story-1" data-i="1"><span>Levering</span><i></i></a>
+  <a href="#story-2" data-i="2"><span>Mål</span><i></i></a>
+  <a href="#story-3" data-i="3"><span>Pak selv</span><i></i></a>
+  <a href="#story-4" data-i="4"><span>Afhentning</span><i></i></a>
+  <a href="#story-5" data-i="5"><span>Nyt hjem</span><i></i></a>
+</nav>
+
+<main id="story">
+  <section class="hero" id="top">
+    <div class="wrap" style="width:100%">
+      <div class="inner">
+        <div class="hero-top">
+        <div class="eyebrow reveal" style="animation-delay:.1s">Flytte- og opbevaringscontainer · Herning &amp; Midtjylland</div>
+        <h1 class="reveal" style="animation-delay:.2s">Fast pris.<em>Ingen overraskelser.</em></h1>
+        <div class="herocta reveal" style="animation-delay:.32s">
+          <a class="btn primary big" href="#pris">Book container <span class="arr">→</span></a>
+          <span class="note"><i></i>Vælg dato online · bekræftelse med det samme</span>
+        </div>
+        <div class="hawards reveal" style="animation-delay:.62s" aria-label="Priser til HV-transport">
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7fd89e" stroke-width="2"><path d="M5 19c8 0 14-6 14-15-9 0-15 6-15 14"/><path d="M5 19c2-4 5-7 9-9"/></svg>Årets ESG-pris</span>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7fd89e" stroke-width="2"><path d="M5 19c8 0 14-6 14-15-9 0-15 6-15 14"/><path d="M5 19c2-4 5-7 9-9"/></svg>Den Grønne Transportpris</span>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="#ffd27a"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>Årets Transportvirksomhed</span>
+        </div>
+        </div>
+        <div class="hero-bottom">
+        <p class="lead reveal" style="animation-delay:.35s">Lej en 20-fods container til flytning, renovering eller lager. Vi leverer med kranbil – typisk inden for 1–3 hverdage.</p>
+        <div class="pricechip reveal" style="animation-delay:.45s"><b>Fra 3.000 kr.</b><span>inkl. moms · fast pris i Herning, Ikast og Sunds<i class="pc-more"> · se din pris med det samme</i></span></div>
+        <a class="bundlechip reveal" style="animation-delay:.5s" href="#sametur"><i aria-hidden="true">+</i><span class="bc-long"><b>Samlerabat – alt fra én vognmand</b>Saml affaldscontainer, sand og muld på samme tur – spar <em class="bundle-amt">250 kr.</em> pr. ekstra ydelse</span><span class="bc-short"><b>Samlerabat:</b> spar <em class="bundle-amt">250 kr.</em> pr. ekstra ydelse</span><s aria-hidden="true">→</s></a>
+        <div class="ctas reveal" style="animation-delay:.55s">
+          <a class="btn ghost" href="#pris">Se pris og ledige datoer <span class="arr">→</span></a>
+          <a class="btn ghost" href="tel:+4597122323">Ring 97 12 23 23</a>
+        </div>
+        <div class="trust reveal" style="animation-delay:.7s">
+          <span>Lokal vognmand siden 1946</span><span>Egen kranbil</span><span>Standard eller isoleret</span>
+        </div>
+        </div>
+      </div>
+    </div>
+    <a class="scrollhint" href="#story-1" aria-label="Rul ned og se leveringen"><i></i><span>Rul ned – se leveringen</span><b aria-hidden="true"></b></a>
+  </section>
+
+  <section class="step" id="story-1">
+    <div class="wrap" style="width:100%"><div class="card">
+      <div class="num">01 / LEVERING</div>
+      <h2>Vi sætter den, hvor du skal bruge den</h2>
+      <p>Containeren kommer med vores egen kranbil og bliver sat præcist på plads i indkørslen eller på pladsen. Kranen rækker typisk 8–13 m.</p>
+      <p>Du vælger selv datoen i bookingen. Vi leverer typisk inden for 1–3 hverdage.</p>
+    </div></div>
+  </section>
+
+  <section class="step" id="story-2">
+    <div class="wrap" style="width:100%"><div class="card">
+      <div class="num">02 / PLADS</div>
+      <h2>Plads til ca. 270 flyttekasser</h2>
+      <p>En lukket 20-fods container med ca. 33 m³ – nok til indboet fra et helt hus, værktøj til en byggeplads eller havemøbler og sæsonudstyr.</p>
+      <div class="facts">
+        <div class="fact"><b>587</b><span>cm lang, indvendigt</span></div>
+        <div class="fact"><b>235</b><span>cm bred</span></div>
+        <div class="fact"><b>237</b><span>cm høj</span></div>
+      </div>
+      <p style="margin-top:14px;font-size:14px">Vælg standard (ca. 33 m³) eller isoleret (ca. 29 m³) – isoleret mindsker risikoen for kondens ved lang opbevaring.</p>
+    </div></div>
+  </section>
+
+  <section class="step" id="story-3">
+    <div class="wrap" style="width:100%"><div class="card">
+      <div class="num">03 / PAK SELV</div>
+      <h2>Pak i dit eget tempo</h2>
+      <p>Containeren står lige uden for døren, så du kan pakke en aften ad gangen. Tingene står tørt og aflåst, mens håndværkerne arbejder.</p>
+      <ul class="checks">
+        <li>30 dages leje er med i prisen</li>
+        <li>Kan aflåses – vi har kraftige, godkendte containerlåse</li>
+        <li>Skal du flytte? Vi kører den fyldte container til din nye adresse – se prisen for flyttekørslen i prisberegneren</li>
+      </ul>
+    </div></div>
+  </section>
+
+  <section class="step" id="story-4">
+    <div class="wrap" style="width:100%"><div class="card">
+      <div class="num">04 / AFHENTNING</div>
+      <h2>Vi henter den igen</h2>
+      <p>Når du er færdig, bestiller du afhentning online, på mail eller telefon. Kranbilen løfter containeren op – og indkørslen er din igen.</p>
+      <ul class="checks">
+        <li>Regn med afhentning inden for 3 dage før eller efter ønsket dato</li>
+        <li>Skal den flyttes fyldt til ny adresse? Det klarer vi også – flytning er tre kørsler, og prisberegneren viser dem alle</li>
+      </ul>
+      <p class="sametrip"><b>Samme tur retur:</b> Har du en affaldscontainer til oprydningen, tager vi den med tilbage, når vi henter – uden ekstra kørsel. Godt for prisen og for miljøet.</p>
+    </div></div>
+  </section>
+
+  <section class="step" id="story-5">
+    <div class="wrap" style="width:100%"><div class="card">
+      <div class="num">05 / VIDERE</div>
+      <h2>Med til dit nye hjem</h2>
+      <p>Skal du flytte, kører vi den fyldte container direkte til din nye adresse – eller hjem til os, når du er færdig. Flytning er tre kørsler: vi leverer den tomme container, kører den fyldt til din nye adresse og henter den tomme igen dér. Sæt flueben ved flytning i prisberegneren, så ser du prisen for alle tre med det samme. Tjek at der er plads til kranbilen:</p>
+      <ul class="checks">
+        <li>Adgangsvej mindst 3,5 m bred og 4 m høj</li>
+        <li>Fast, plant underlag – asfalt, beton eller komprimeret grus</li>
+        <li>På vej eller fortov kræver det kommunens tilladelse</li>
+      </ul>
+      <p class="sametrip"><b>Samme tur:</b> Skal der sand under fliserne eller muld i det nye bed? Det kommer med lastbilen fra Sandshoppen – så sparer du en kørsel.</p>
+    </div></div>
+  </section>
+</main>
+
+<div class="solid">
+
+  <section class="sec" id="saadan">
+    <div class="wrap">
+      <div class="head fade">
+        <div><div class="eyebrow">Sådan virker det</div><h2>Booket på to minutter</h2></div>
+        <p class="intro">Private booker direkte online og får bekræftelse med det samme. Virksomheder ringer og får et tilbud.</p>
+      </div>
+      <div class="how">
+        <article class="fade"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Indtast adressen</h3><p>Så ser du med det samme, om vi leverer hos dig. Vi dækker primært Midt- og Vestjylland.</p></article>
+        <article class="fade" style="transition-delay:.1s"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div><h3>Vælg container og dato</h3><p>Standard eller isoleret, med eller uden lås. Du vælger selv leveringsdagen.</p></article>
+        <article class="fade" style="transition-delay:.2s"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M2 16V7h11v9M13 10h5l4 4v2h-9"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div><h3>Vi kommer med kranbilen</h3><p>Typisk inden for 1–3 hverdage. Når du er færdig, bestiller du afhentning online, på mail eller telefon.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="pris">
+    <div class="wrap">
+      <div class="head fade">
+        <div><div class="eyebrow">Priser for private · inkl. moms</div><h2 style="color:#fff">Se din pris med det samme</h2></div>
+        <p class="intro">Skriv din adresse, og se prisen med det samme – ingen ventetid på et tilbud på mail. I Herning, Ikast og Sunds er prisen fast. 30 dages leje er altid med, og derefter betaler du en fast dagspris.</p>
+      </div>
+      <div class="pgrid">
+        <div class="calc fade">
+          <label class="lbl" for="adr1">Hvor skal containeren stå?</label>
+          <div class="adr" id="adrbox1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><input id="adr1" type="text" placeholder="Skriv din adresse – fx Bøgevej 12, Herning" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="adrl1"><ul class="adrl" id="adrl1" role="listbox"></ul></div>
+          <p class="adrnote">Adressen bruges kun til at regne prisen ud. Den slås op i Danmarks Adresser, og afstanden beregnes af en ruteplanlægger – vi gemmer den ikke. <a href="privatlivspolitik.html#prisberegner">Læs mere</a></p>
+          <div class="zonetag" id="zonetag" hidden></div>
+          <label class="movechk"><input type="checkbox" id="movechk"> <span>Skal containeren fyldt med til en ny adresse? <small>(flytning)</small></span></label>
+          <p class="movenote" id="movenote" hidden>Flytning = 3 kørsler: levering af tom container, flyttekørsel med den fyldte container og afhentning af den tomme på den nye adresse.</p>
+          <div class="adr" id="adrbox2" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><input id="adr2" type="text" placeholder="Din nye adresse" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="adrl2"><ul class="adrl" id="adrl2" role="listbox"></ul></div>
+          <span class="lbl" style="margin-top:24px">Container</span>
+          <div class="seg" role="group" aria-label="Containertype">
+            <button type="button" data-type="std" aria-pressed="true">Standard · 33 m³</button>
+            <button type="button" data-type="iso" aria-pressed="false">Isoleret · 29 m³</button>
+          </div>
+          <div class="qty" id="qtybox" hidden><span class="lbl" style="margin:22px 0 10px">Antal containere</span><div class="seg" role="group" aria-label="Antal containere"><button type="button" data-q="1" aria-pressed="true">1</button><button type="button" data-q="2" aria-pressed="false">2</button><button type="button" data-q="3" aria-pressed="false">3</button><button type="button" data-q="4" aria-pressed="false">4+</button></div></div>
+          <div class="range">
+            <div class="row"><label class="lbl" for="mdr" style="margin:0">Lejeperiode</label><output id="mdr-out">1 måned</output></div>
+            <input type="range" id="mdr" min="1" max="24" value="1" step="1">
+            <div class="presets"><button data-m="1">1 md.</button><button data-m="2">2 mdr.</button><button data-m="3">3 mdr.</button><button data-m="6">6 mdr.</button><button data-m="12">12 mdr.</button></div>
+          </div>
+          <div class="addons">
+            <span class="lbl" style="margin:24px 0 6px">Saml mere hos HV – og spar <small>– valgfrit</small></span>
+            <p class="addnote">Hver ekstra ydelse på samme tur giver samlerabat. Sand, grus og muld fra Sandshoppen eller en affaldscontainer – alt fra én vognmand, med færre kørsler og mindre CO₂.</p>
+            <div class="chipsel" role="group" aria-label="Med på samme tur">
+              <label><input type="checkbox" value="Sand"><span>Sand</span></label>
+              <label><input type="checkbox" value="Stabilgrus"><span>Stabilgrus</span></label>
+              <label><input type="checkbox" value="Muld"><span>Muld</span></label>
+              <label><input type="checkbox" value="Affaldscontainer"><span>Affaldscontainer</span></label>
+            </div>
+          </div>
+          <div class="receipt" aria-live="polite">
+            <div class="ln"><span id="lv-t">Levering med kranbil<small id="lv-s">fast lokalpris i Herning, Ikast og Sunds</small></span><b id="lv-v">1.500 kr.</b></div>
+            <div class="ln" id="ln-move" style="display:none"><span>Kørsel 2 · flyttekørsel med fyldt container<small id="mv-s"></small></span><b id="mv-v"></b></div>
+            <div class="ln"><span id="af-t">Afhentning<small id="af-s"></small></span><b id="af-v">1.500 kr.</b></div>
+            <div class="ln"><span>Leje dag 1–30</span><b>inkluderet</b></div>
+            <div class="ln" id="ln-month" style="display:none"><span id="mo-t">Månedspris<small id="mo-s"></small></span><b id="mo-v"></b></div>
+            <div class="ln" id="ln-extra"><span id="ex-t">Leje dag 31–90<small id="ex-s">60 dage × 28 kr.</small></span><b id="ex-v">1.680 kr.</b></div>
+          </div>
+          <div class="receipt combo" id="combo" style="display:none">
+            <div class="ln"><span>Med på samme tur<small id="cb-s"></small></span><b>pris på bekræftelsen</b></div>
+            <div class="ln good" id="cb-waste" style="display:none"><span>Affaldscontainer hentes på returturen<small>samme bil som din container · affaldet afregnes pr. ton</small></span><b>0 kr. kørsel</b></div>
+            <div class="ln good"><span>Samlerabat – alt fra HV<small id="cb-n">én tur, én faktura</small></span><b id="cb-v"></b></div>
+          </div>
+          <div class="total"><span id="tot-l">Fra, inkl. moms</span><div><b id="tot">4.680 kr.</b><small id="avg">ca. 1.560 kr. pr. måned</small></div></div>
+          <div class="pstatus" id="pstatus"></div>
+          <div class="ctas" style="margin-top:22px"><a class="btn primary" href="#top" id="bookbtn">Book denne container <span class="arr">→</span></a></div>
+          <p class="note" style="margin-top:14px">Beregnet med 30 dage pr. måned. Prisen regnes ud fra din adresse, så snart du skriver den – ingen ventetid på et tilbud. Tillæg for lås og forgæves kørsel oplyses af en medarbejder.</p>
+          <p class="note draftnote">Designudkast: kilometertillæg og flyttepris er eksempeltal. HV-transport indsætter egne priser i prismodellen (pricing.json).</p>
+        </div>
+        <div class="pside">
+          <div class="pbox fade">
+            <div class="eyebrow" style="color:#ffd3c4">Fast lokalpris · Herning, Ikast og Sunds</div>
+            <div class="big">3.000 kr.</div>
+            <p>Levering 1.500 kr. + afhentning 1.500 kr. – fast pris</p>
+            <p><b>30 dages leje er med i prisen.</b></p>
+            <p style="margin-top:12px">Derefter 28 kr./dag · isoleret 33 kr./dag</p>
+            <p class="zone"><b>Bor du længere væk?</b> Så lægges et kilometertillæg til – du ser den præcise pris i beregneren, så snart du skriver din adresse. Det samme gælder, hvis containeren skal fyldt med til en ny adresse.</p>
+          </div>
+          <div class="examples fade">
+            <div><b>4.680 kr.</b><span>3 mdr. · Herning, Ikast og Sunds</span></div>
+            <div><b>7.200 kr.</b><span>6 mdr. · Herning, Ikast og Sunds</span></div>
+            <div><b>12.240 kr.</b><span>12 mdr. · Herning, Ikast og Sunds</span></div>
+          </div>
+          <p class="note fade">Online booking er for private. Er du virksomhed, så ring <a href="tel:+4597122323">97 12 23 23</a> – vi regner på projektet og kan køre containeren med samme bil som affald eller grus.</p>
+        </div>
+      </div>
+      <div class="triohead fade"><h3>Alt fra én vognmand</h3><p>Saml container, affald og materialer hos HV – og spar. Færre kørsler, lavere pris, mindre CO₂ og én faktura.</p></div>
+      <div class="trio fade">
+        <a href="#pris" class="cur"><b>Containerudlejning</b><span>Flytte- og opbevaringscontainer, sat med kran</span></a>
+        <a href="#sametur"><b>Sandshoppen</b><span>Sand, grus og muld – med på samme tur</span></a>
+        <a href="erhverv.html#bundle"><b>HV-transport</b><span>Affaldscontainere, kranarbejde og kørsel</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="hvem">
+    <div class="wrap">
+      <div class="head fade">
+        <div><div class="eyebrow">Hvem lejer en container?</div><h2>Ekstra plads – lige uden for døren</h2></div>
+        <p class="intro">Samme container, tre gode grunde – når der skal flyttes, bygges om eller sælges i Herning.</p>
+      </div>
+      <div class="aud">
+        <article class="fade tilt"><svg class="glyph" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#c24a32" stroke-width="1.6"><path d="M3 11l9-7 9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg>
+          <div class="tag">Private · flytning</div><h3>Mellem to boliger</h3><blockquote>»Pak i dit eget tempo.«</blockquote><p>Containeren står i indkørslen, mens du pakker. Vi kan også køre den fyldt til din nye adresse – se prisen med det samme i beregneren.</p></article>
+        <article class="fade tilt" style="transition-delay:.08s"><svg class="glyph" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#c24a32" stroke-width="1.6"><path d="M14 6l4 4-9 9H5v-4z"/><path d="M12 8l4 4"/></svg>
+          <div class="tag">Private · renovering</div><h3>Nyt køkken eller gulv</h3><blockquote>»Tøm rummene – ikke nerverne.«</blockquote><p>Møblerne står tørt og aflåst lige uden for døren, mens håndværkerne arbejder.</p></article>
+        <article class="fade tilt" style="transition-delay:.16s"><svg class="glyph" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#c24a32" stroke-width="1.6"><path d="M4 21V10l8-6 8 6v11"/><path d="M9 14h6M12 11v6"/></svg>
+          <div class="tag">Private · boligsalg</div><h3>Huset skal sælges</h3><blockquote>»Luft i stuerne til fremvisningen.«</blockquote><p>Flyt det, I ikke bruger, ud i containeren, så boligen ser større ud på billederne og ved fremvisning – og tag det hele med, når I flytter.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sametur">
+    <div class="wrap bgrid">
+      <div class="fade">
+        <div class="eyebrow">Alt fra én vognmand</div>
+        <p class="bigquote">Ét sted.<br>Én bil.<br><span>Én faktura.</span></p>
+        <p class="intro">Container, affaldscontainer, sand, grus og muld – alt fra HV-transport og Sandshoppen, leveret med samme bil. Jo mere du samler hos os, jo mere sparer du: færre kørsler, lavere pris, mindre CO₂ og én faktura.</p>
+        <div class="ctas"><a class="btn primary" href="#pris">Vælg det i prisberegneren <span class="arr">→</span></a><a class="btn ghost" href="tel:+4597122323">Ring 97 12 23 23</a></div>
+      </div>
+      <div class="bundle fade" style="transition-delay:.1s">
+        <div class="hl retur"><b>Affaldscontainer med retur – uden ekstra kørsel</b><span>Skal der ryddes op, før du flytter? Når vi henter din opbevaringscontainer, tager vi affaldscontaineren med tilbage på samme tur. Du betaler ingen ekstra kørsel – kun for affaldet, som afregnes pr. ton efter type. Én lastbil i stedet for to: lavere pris og mindre CO₂.</span></div>
+        <div class="hl"><b>Samlerabat – jo mere, jo mere sparer du</b><span>For hver ekstra ydelse, du samler på samme tur som containeren, trækker vi en rabat fra. Du ser besparelsen med det samme i prisberegneren.</span></div>
+        <div><b>Affaldscontainer til oprydningen</b><span>Åben eller lukket, 12–16 m³ – til det, der ikke skal med i flytningen. 7 dage inkluderet på åbne containere.</span></div>
+        <div><b>Sand under fliser og terrasse</b><span>Fra Sandshoppen, leveret med samme bil som containeren.</span></div>
+        <div><b>Muld til den nye have</b><span>Til bede og græsplæne, når der er flyttet ind.</span></div>
+        <div><b>Grus og stabilgrus</b><span>Til indkørsel, stier og fundament – også under containeren, hvis den skal stå på græs.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec b2bband" id="erhverv">
+    <div class="wrap">
+      <div class="b2bin fade">
+        <div><div class="eyebrow">Til virksomheder</div><h2>Erhverv har sin egen side og pris</h2>
+        <p>Byggeplads, lager eller flere containere på lang leje? Vi giver et tilbud på jeres projekt – og kører vi allerede affald eller grus til jer, kan containeren komme med på samme tur og samme faktura.</p></div>
+        <div class="ctas"><a class="btn primary" href="erhverv.html">Se erhvervssiden <span class="arr">→</span></a><a class="btn ghost" href="tel:+4597122323">Ring 97 12 23 23</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="omraade">
+    <div class="wrap mgrid">
+      <div class="fade">
+        <div class="eyebrow">Leveringsområde</div>
+        <h2>Kørt ud fra Herning</h2>
+        <p class="intro">Fast lokalpris: 3.000 kr. i hele Herning, Ikast og Sunds og inden for 15 km af vores plads på Mørupvej 37. Længere ude i Midt- og Vestjylland kører vi også, og prisberegneren viser din pris med det samme.</p>
+        <div class="towns" id="towns"></div>
+      </div>
+      <div class="mapwrap fade" style="transition-delay:.1s">
+        <svg id="map" viewBox="0 0 600 520" role="img" aria-label="Kort over byer i Midt- og Vestjylland med Herning i midten"></svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq">
+    <div class="wrap fgrid">
+      <div>
+        <div class="fade"><div class="eyebrow">Spørgsmål og svar</div><h2>Det spørger folk om</h2></div>
+        <div class="aicard fade">
+          <div class="eyebrow">Ny · AI-assistent</div>
+          <h3>Spørg løs – også uden for åbningstid</h3>
+          <p>Assistenten svarer ud fra vores egne priser og vilkår. Er der noget, den ikke ved, sender den dig videre til en medarbejder.</p>
+          <button class="btn primary" type="button" data-open-chat>Start en samtale <span class="arr">→</span></button>
+        </div>
+      </div>
+      <div id="faqlist"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="om">
+    <div class="wrap">
+      <div class="head fade">
+        <div><div class="eyebrow">Om HV-transport A/S</div><h2>Vognmand i Herning siden 1946</h2></div>
+        <p class="intro">Containerudlejning.dk drives af HV-transport – et lokalt vognmandsfirma med egne lastbiler, kranbiler og containere. Du taler med folk, der kender området.</p>
+      </div>
+      <div class="stats fade">
+        <div><b data-count="1946" data-plain>1946</b><span>grundlagt i Herning</span></div>
+        <div><b data-count="50">50</b><span>lastbiler</span></div>
+        <div><b data-count="150" data-prefix="ca. ">ca. 150</b><span>containere</span></div>
+        <div><b>1–3</b><span>hverdage til levering</span></div>
+      </div>
+      <div class="awards fade">
+        <span><i><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg></i>Årets Transportvirksomhed</span>
+        <span><i><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg></i>Årets ESG-pris</span>
+        <span><i><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg></i>Den Grønne Transportpris</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec final">
+    <div class="stripes" aria-hidden="true"></div>
+    <div class="wrap fade">
+      <div class="eyebrow" style="color:#ffd3c4">Klar, når du er</div>
+      <h2>Fra 3.000 kr. for 30 dage i indkørslen</h2>
+      <p class="intro">Levering, afhentning og 30 dages leje. Book online og få bekræftelse med det samme.</p>
+      <div class="ctas"><a class="btn primary" href="#pris">Se pris og ledige datoer <span class="arr">→</span></a><a class="btn ghost" href="tel:+4597122323">Ring 97 12 23 23</a></div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="logo" href="#top"><img src="img/logo-white.png" alt="containerudlejning.dk" width="196" height="48"></a>
+      <p style="margin-top:16px;max-width:34ch">Opbevarings- og affaldscontainere, kranarbejde og Sandshoppen – fra Herning siden 1946.</p>
+    </div>
+    <div><h4>Kontakt</h4><p><a href="tel:+4597122323">97 12 23 23</a></p><p><a href="mailto:booking@containerudlejning.dk">booking@containerudlejning.dk</a></p><p>Mørupvej 37, 7400 Herning</p></div>
+    <div><h4>Åbningstid</h4><p>Mandag–torsdag 8–16</p><p>Fredag 8–14</p></div>
+    <div><h4>Ydelser</h4><p><a href="#story-1">Flytte- og opbevaringscontainer</a></p><p><a href="erhverv.html">Container til erhverv</a></p><p><a href="erhverv.html#bundle">Affaldscontainer</a></p><p><a href="erhverv.html#bundle">Sand, grus og muld</a></p><p><a href="erhverv.html#koeb">Køb af container</a></p></div>
+    <div class="legal"><span>HV-transport A/S · CVR 31577675 · Mørupvej 37, 7400 Herning · 97 12 23 23 · booking@containerudlejning.dk</span><span class="legal-links"><a href="privatlivspolitik.html">Privatlivspolitik</a><a href="privatlivspolitik.html#cookies">Cookiepolitik</a><a href="#" data-cookie-settings>Cookieindstillinger</a><a href="https://containerudlejning.dk/vilkaar" target="_blank" rel="noopener">Handelsbetingelser</a><a href="privatlivspolitik.html#virksomhed">Virksomhedsoplysninger</a></span><span>Designudkast – ikke offentliggjort</span></div>
+  </div>
+</footer>
+
+<section class="cc" id="cc" role="dialog" aria-modal="false" aria-labelledby="cc-t" hidden>
+  <div class="cc-in">
+    <h2 id="cc-t">Cookies og dit privatliv</h2>
+    <p>Siden bruger kun det, der er nødvendigt for at den virker. Siger du ja, bruger vi også cookies til statistik og til at måle vores annoncer (fx Google Ads). Du kan altid ændre dit valg under <i>Cookieindstillinger</i> nederst på siden. <a href="privatlivspolitik.html#cookies">Læs cookiepolitikken</a></p>
+    <div class="cc-opts" id="cc-opts" hidden>
+      <label><input type="checkbox" checked disabled> <span><b>Nødvendige</b><small>Husker dit cookievalg. Kan ikke fravælges.</small></span></label>
+      <label><input type="checkbox" id="cc-stat"> <span><b>Statistik</b><small>Anonym måling af, hvordan siden bruges.</small></span></label>
+      <label><input type="checkbox" id="cc-mkt"> <span><b>Markedsføring</b><small>Måling af annoncer, fx Google Ads.</small></span></label>
+    </div>
+    <div class="cc-btns">
+      <button type="button" class="ccb" id="cc-no">Afvis alle</button>
+      <button type="button" class="ccb" id="cc-custom">Tilpas</button>
+      <button type="button" class="ccb" id="cc-save" hidden>Gem valg</button>
+      <button type="button" class="ccb" id="cc-yes">Accepter alle</button>
+    </div>
+  </div>
+</section>
+<button class="fab" type="button" data-open-chat aria-controls="chat"><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M4 5h16v11H9l-5 4z"/></svg></i>Spørg AI-assistenten</button>
+<section class="chat" id="chat" aria-label="AI-assistent" aria-hidden="true">
+  <header><div><b>HV's AI-assistent</b><small>Skriv eller tal – svarer ud fra vores priser og vilkår</small></div><div class="hbtns"><button type="button" class="spk" id="chat-spk" aria-pressed="false" aria-label="Læs svar højt" title="Læs svar højt"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg></button><button type="button" id="chat-x" aria-label="Luk">×</button></div></header>
+  <div class="log" id="log" aria-live="polite"></div>
+  <div class="chips" id="chips"></div>
+  <form class="cform" id="cform"><input id="cq" placeholder="Skriv eller tryk på mikrofonen…" aria-label="Dit spørgsmål" autocomplete="off"><button type="button" class="mic" id="cmic" aria-label="Tal dit spørgsmål" title="Tal dit spørgsmål"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button><button type="submit">Send</button></form>
+  <div class="disc">Demo · skriv ikke personoplysninger · en medarbejder kan altid tage over på 97 12 23 23 · <a href="privatlivspolitik.html#chat">Privatliv</a></div>
+</section>
+
+<script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/addons/"}}</script>
+<script>
+(() => {
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const ss=(k,a,b)=>{const t=clamp((k-a)/(b-a),0,1);return t*t*(3-2*t)};
+const lerp=(a,b,t)=>a+(b-a)*t;
+const kr=n=>Math.round(n).toLocaleString('da-DK')+' kr.';
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- nav / reveal ---------- */
+const nav=document.getElementById('nav');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.18});
+document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+const stepIO=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('in',e.isIntersecting)),{threshold:.35});
+document.querySelectorAll('.step').forEach(el=>stepIO.observe(el));
+
+/* ---------- 3D tilt cards ---------- */
+document.querySelectorAll('.tilt').forEach(c=>{
+  c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    c.style.transform=`rotateY(${x*10}deg) rotateX(${-y*10}deg) translateZ(0)`});
+  c.addEventListener('mouseleave',()=>c.style.transform='');
+});
+
+/* ---------- price calculator: live price from the address, rules from pricing.json ('the brain') ---------- */
+const BRAIN_DEFAULT={status:'estimat',depot:{lat:56.11823,lon:8.93457},tur:{basisPris:1500},lokalZone:{aktiv:true,navn:'Fast lokalpris',radiusKm:15,postnumre:['7400','7430','7451'],prisPrTur:1500},
+  kmModel:{fraKm:15,krPrVejKmPrTur:20,maksVejKm:100},afstand:{routing:'https://router.project-osrm.org/route/v1/driving/',vejfaktor:1.3},
+  leje:{inklDage:30,dagspris:{std:28,iso:33}},flytning:{basisPris:1500,krPrVejKmMellemAdresser:15,inklKm:10},postnrPriser:{},adressePriser:{},
+  udenforOmraade:{tekst:'Så langt kører vi normalt ikke med online-pris – ring 97 12 23 23, så finder vi en løsning.'},
+  samkoersel:{aktiv:true,fordelPrYdelse:250,maksYdelser:4,affaldRetur:true,note:'pris på varen følger på bekræftelsen'},
+  erhverv:{moms:false,tur:{basisPris:1200},lokalZone:{prisPrTur:1200},kmModel:{krPrVejKmPrTur:16},leje:{inklDage:30,dagspris:{std:22.4,iso:26.4},maanedspris:475,maanedsprisFraDag:61},flytning:{basisPris:1200,krPrVejKmMellemAdresser:12,inklKm:10},samkoersel:{aktiv:true,fordelPrYdelse:200,maksYdelser:4,note:'affald, grus og kran på samme faktura'}}};
+let BRAIN=BRAIN_DEFAULT;
+const PAGE=document.body.dataset.page||'privat';
+/* the business page uses the 'erhverv' block (ex VAT) on top of the shared rules */
+const eff=()=>{if(PAGE!=='erhverv'||!BRAIN.erhverv)return BRAIN;const E=BRAIN.erhverv,o={...BRAIN};for(const k in E)o[k]=(E[k]&&typeof E[k]==='object'&&!Array.isArray(E[k]))?{...(BRAIN[k]||{}),...E[k]}:E[k];return o};
+let qty=1;
+fetch('pricing.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(j=>{if(j){BRAIN=Object.assign({},BRAIN_DEFAULT,j);calc()}}).catch(()=>{});
+let type='std';const mdr=document.getElementById('mdr');
+const A={from:null,to:null};              // chosen addresses {tekst,lat,lon,postnr,id,air,road}
+const air=(a,b)=>{const R=6371,t=Math.PI/180,dl=(b.lat-a.lat)*t,dn=(b.lon-a.lon)*t,h=Math.sin(dl/2)**2+Math.cos(a.lat*t)*Math.cos(b.lat*t)*Math.sin(dn/2)**2;return 2*R*Math.asin(Math.sqrt(h))};
+async function road(a,b){const f=air(a,b)*(BRAIN.afstand.vejfaktor||1.3);if(!BRAIN.afstand.routing)return{km:f,est:true};
+  try{const ctl=new AbortController();setTimeout(()=>ctl.abort(),2500);
+    const r=await fetch(`${BRAIN.afstand.routing}${a.lon},${a.lat};${b.lon},${b.lat}?overview=false`,{signal:ctl.signal});const j=await r.json();
+    if(j.routes&&j.routes[0])return{km:j.routes[0].distance/1000,est:false}}catch(e){}
+  return{km:f,est:true}}
+function tripPrice(ad){                   // one crane-truck trip to this address
+  const B=eff(),base=B.tur.basisPris;
+  if(ad.id&&B.adressePriser[ad.id]&&B.adressePriser[ad.id].prisPrTur)return{p:B.adressePriser[ad.id].prisPrTur,why:'fast pris for adressen',kind:'in'};
+  if(B.postnrPriser[ad.postnr]&&B.postnrPriser[ad.postnr].prisPrTur)return{p:B.postnrPriser[ad.postnr].prisPrTur,why:`fast pris for ${ad.postnr}`,kind:'in'};
+  const z=B.lokalZone;
+  if(z&&z.aktiv&&(z.postnumre||[]).includes(String(ad.postnr))){const by=((ad.tekst||'').match(/\d{4} (.+)$/)||[])[1]||ad.postnr;return{p:z.prisPrTur??base,why:`${z.navn} · ${by}`,kind:'in'}}   // whole towns: Herning, Ikast, Sunds
+  if(z&&z.aktiv&&ad.air<=z.radiusKm)return{p:z.prisPrTur??base,why:`${z.navn} · ${ad.air.toFixed(1).replace('.',',')} km fra pladsen`,kind:'in'};
+  const km=ad.road??ad.air*(B.afstand.vejfaktor||1.3),M=B.kmModel;
+  if(km>M.maksVejKm)return{p:null,why:`ca. ${Math.round(km)} km`,kind:'far'};
+  const ex=Math.max(0,km-M.fraKm);return{p:Math.round((base+ex*M.krPrVejKmPrTur)/10)*10,why:`ca. ${Math.round(km)} km ad vej · ${Math.round(ex)} km × ${M.krPrVejKmPrTur} kr. tillæg`,kind:'out'};
+}
+function calc(){
+  const B=eff(),m=+mdr.value,days=m*30,incl=B.leje.inklDage,rate=B.leje.dagspris[type],VAT=B.moms===false?'ekskl. moms':'inkl. moms';
+  // rent: daily rate after the included days; optional fixed monthly price from a given day (long business rentals)
+  const mp=B.leje.maanedspris,from=B.leje.maanedsprisFraDag||61;
+  const dailyEnd=mp?Math.min(days,from-1):days,extra=Math.max(0,dailyEnd-incl),months=mp?Math.max(0,days-(from-1))/30:0,rent=extra*rate+months*(mp||0);
+  document.getElementById('mdr-out').textContent=m+(m===1?' måned':' måneder');
+  const ln=document.getElementById('ln-extra');ln.style.display=extra?'':'none';
+  document.getElementById('ex-t').firstChild.nodeValue=`Leje dag ${incl+1}–${dailyEnd}`;
+  document.getElementById('ex-s').textContent=`${extra} dage × ${rate%1?rate.toFixed(2).replace('.',','):rate} kr.`;
+  document.getElementById('ex-v').textContent=kr(extra*rate);
+  const lm=document.getElementById('ln-month');lm.style.display=months?'':'none';
+  if(months){document.getElementById('mo-t').firstChild.nodeValue=`Månedspris fra dag ${from}`;document.getElementById('mo-s').textContent=`${String(Math.round(months*10)/10).replace('.',',')} mdr. × ${kr(mp)}`;document.getElementById('mo-v').textContent=kr(months*mp)}
+  const moveOn=document.getElementById('movechk').checked, moving=moveOn&&A.to;   // ticked = three trips shown at once; the new address refines the price
+  const intro={p:B.lokalZone.prisPrTur??B.tur.basisPris,why:'fast lokalpris i Herning, Ikast og Sunds',kind:'none'};
+  const d=A.from?tripPrice(A.from):intro, pu=moving?tripPrice(A.to):d;
+  let mv=null;const F=B.flytning;if(moving&&A.from){const km=A.moveKm??air(A.from,A.to)*(B.afstand.vejfaktor||1.3);mv={p:Math.round((F.basisPris+Math.max(0,km-F.inklKm)*F.krPrVejKmMellemAdresser)/10)*10,why:`ca. ${Math.round(km)} km mellem adresserne`}}
+  else if(moveOn&&(A.from||A.to))mv={p:F.basisPris,why:`fra-pris inkl. ${F.inklKm} km · skriv ${A.from?'den nye':'din nuværende'} adresse`};
+  else if(moveOn)mv={p:F.basisPris,why:`fra-pris inkl. ${F.inklKm} km mellem adresserne`};
+  // more on the same truck: products are priced on the confirmation, the saved trip is a fixed benefit set by HV
+  {const S0=B.samkoersel||{},amt=S0.fordelPrYdelse||S0.fordel;document.querySelectorAll('.bundle-amt').forEach(e=>{if(amt)e.textContent=kr(amt)})}
+  const adds=[...document.querySelectorAll('.chipsel input:checked')].map(x=>x.value),S=B.samkoersel||{},save=adds.length&&S.aktiv!==false?(S.fordelPrYdelse?S.fordelPrYdelse*Math.min(adds.length,S.maksYdelser||4):(S.fordel||0)):0;   // bundle discount: more HV services on the same trip = more saved
+  document.getElementById('combo').style.display=adds.length?'':'none';
+  document.getElementById('cb-waste').style.display=adds.includes('Affaldscontainer')&&S.affaldRetur!==false?'':'none';
+  if(adds.length){document.getElementById('cb-s').textContent=adds.join(', ')+(S.note?' · '+S.note:'');document.getElementById('cb-v').textContent=save?'− '+kr(save):'pris på bekræftelsen';document.getElementById('cb-n').textContent=S.fordelPrYdelse?`${Math.min(adds.length,S.maksYdelser||4)} ${adds.length>1?'ydelser':'ydelse'} × ${kr(S.fordelPrYdelse)} · én tur, én faktura`:'én tur, én faktura'}
+  const set=(id,v)=>document.getElementById(id).textContent=v, q=qty>1?` · × ${qty}`:'';
+  set('lv-s',(A.from?d.why:intro.why)+q);set('lv-v',d.p==null?'ring':kr(d.p*qty));
+  set('af-s',(moving?`fra din nye adresse · ${pu.why}`:moveOn?'på den nye adresse':'samme adresse')+q);set('af-v',pu.p==null?'ring':kr(pu.p*qty));
+  document.getElementById('lv-t').firstChild.nodeValue=moveOn?'Kørsel 1 · levering af tom container':'Levering med kranbil';
+  document.getElementById('af-t').firstChild.nodeValue=moveOn?'Kørsel 3 · afhentning på ny adresse':'Afhentning';
+  document.getElementById('ln-move').style.display=mv?'':'none';if(mv){set('mv-s',mv.why+q);set('mv-v',kr(mv.p*qty))}
+  if(qty>1){set('ex-v',kr(extra*rate*qty));if(months)set('mo-v',kr(months*mp*qty))}
+  const far=d.p==null||pu.p==null,total=far?null:qty*(d.p+pu.p+(mv?mv.p:0)+rent)-save;
+  set('tot-l',(A.from?'I alt ':'Fra, ')+VAT);
+  if(total==null){document.getElementById('tot').textContent='Ring';set('avg',B.udenforOmraade.tekst)}else{animNum(document.getElementById('tot'),total);set('avg',`ca. ${kr(total/m)} pr. måned · ${VAT}`)}
+  const tag=document.getElementById('zonetag');
+  if(A.from){tag.hidden=false;tag.className='zonetag '+d.kind;tag.innerHTML='<i></i>';const sp=document.createElement('span');
+    sp.textContent=d.kind==='in'?'Du er inden for den faste pris':d.kind==='out'?'Uden for Herning, Ikast og Sunds – kilometertillæg lagt til':'Uden for vores online-område';tag.appendChild(sp)}else tag.hidden=true;
+  const st=document.getElementById('pstatus');
+  st.innerHTML=!A.from?'Skriv adressen for at se den præcise pris':(moveOn&&!A.to?'<b>Flytning</b> – skriv den nye adresse for at se prisen på flyttekørslen':d.kind==='in'&&(!mv)&&qty<4?'<b class="ok">Fast pris</b> – det du ser, er det du betaler':(B.status==='bekraeftet'?'<b class="ok">Pris beregnet ud fra adressen</b>':'<b>Estimat</b> – bekræftes ved booking'));
+}
+let totCur=3000;
+function animNum(el,to){const from=totCur;totCur=to;if(reduce){el.textContent=kr(to);return}const t0=performance.now();
+  (function f(t){const p=clamp((t-t0)/450,0,1),e=1-Math.pow(1-p,3);el.textContent=kr(lerp(from,to,e));if(p<1)requestAnimationFrame(f)})(t0)}
+mdr.addEventListener('input',calc);
+document.querySelectorAll('.presets button').forEach(b=>b.onclick=()=>{mdr.value=b.dataset.m;calc()});
+document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{type=b.dataset.type;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));calc()});
+document.querySelectorAll('#qtybox button').forEach(b=>b.onclick=()=>{qty=+b.dataset.q;document.querySelectorAll('#qtybox button').forEach(x=>x.setAttribute('aria-pressed',x===b));calc()});
+if(PAGE==='erhverv')document.getElementById('qtybox').hidden=false;
+document.querySelectorAll('.chipsel input').forEach(c=>c.onchange=calc);
+document.getElementById('movechk').onchange=e=>{document.getElementById('adrbox2').hidden=!e.target.checked;document.getElementById('movenote').hidden=!e.target.checked;if(e.target.checked)document.getElementById('adr2').focus();calc()};
+{const mc=document.getElementById('movechk');mc.checked=false;document.getElementById('adrbox2').hidden=document.getElementById('movenote').hidden=true}   // default = cheapest price: 1 month, delivery + pickup at the same address
+/* address autocomplete: Danmarks Adresser (DAWA / Dataforsyningen), the official open Danish address register */
+function addrField(inp,list,onPick){let t=null,items=[],sel=-1,seq=0;
+  const close=()=>{list.classList.remove('show');inp.setAttribute('aria-expanded','false')};
+  const draw=()=>{list.innerHTML='';items.forEach((it,i)=>{const li=document.createElement('li');li.setAttribute('role','option');
+      const [vej,...rest]=it.tekst.split(', ');li.textContent=vej;const sm=document.createElement('small');sm.textContent=rest.join(', ');li.appendChild(sm);
+      if(i===sel)li.className='sel';li.onmousedown=e=>{e.preventDefault();pick(it)};list.appendChild(li)});
+    list.classList.toggle('show',items.length>0);inp.setAttribute('aria-expanded',items.length>0)};
+  const pick=it=>{inp.value=it.tekst;close();onPick(it)};
+  inp.addEventListener('input',()=>{clearTimeout(t);const q=inp.value.trim();onPick(null,true);if(q.length<3){items=[];draw();return}
+    t=setTimeout(async()=>{const my=++seq;try{const r=await fetch('https://api.dataforsyningen.dk/autocomplete?type=adresse&per_side=6&q='+encodeURIComponent(q));const j=await r.json();
+      if(my!==seq)return;items=j.filter(x=>x.data&&x.data.x).map(x=>({tekst:x.tekst,lat:x.data.y,lon:x.data.x,postnr:x.data.postnr,id:x.data.adgangsadresseid}));sel=-1;draw()}catch(e){}},160)});
+  inp.addEventListener('keydown',e=>{if(!items.length)return;if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();sel=(sel+(e.key==='ArrowDown'?1:-1)+items.length)%items.length;draw()}
+    if(e.key==='Enter'){e.preventDefault();pick(items[Math.max(sel,0)])}if(e.key==='Escape')close()});
+  inp.addEventListener('blur',()=>setTimeout(close,120));
+}
+async function setAddr(key,it,clear){
+  if(clear){if(A[key]){A[key]=null;if(key==='to')A.moveKm=null;calc()}return}
+  const ad={...it};ad.air=air(BRAIN.depot,ad);A[key]=ad;calc();                     // instant estimate from the straight line …
+  const r=await road(BRAIN.depot,ad);if(A[key]===ad){ad.road=r.km;calc()}              // … refined with road km a moment later
+  if(A.from&&A.to){const mr=await road(A.from,A.to);A.moveKm=mr.km;calc()}
+}
+addrField(document.getElementById('adr1'),document.getElementById('adrl1'),(it,clear)=>setAddr('from',it,clear));
+addrField(document.getElementById('adr2'),document.getElementById('adrl2'),(it,clear)=>setAddr('to',it,clear));
+calc();
+
+/* ---------- counters ---------- */
+const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;cio.unobserve(e.target);
+  const el=e.target,to=+el.dataset.count,pre=el.dataset.prefix||'',plain='plain' in el.dataset,from=plain?1900:0,t0=performance.now();
+  if(reduce)return;(function f(t){const p=clamp((t-t0)/1400,0,1),v=Math.round(lerp(from,to,1-Math.pow(1-p,3)));el.textContent=pre+(plain?v:v.toLocaleString('da-DK'));if(p<1)requestAnimationFrame(f)})(t0)}),{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+/* ---------- map ---------- */
+const TOWNS=[['Herning',56.139,8.973,1],['Ikast',56.139,9.158,1],['Brande',55.943,9.128,1],['Holstebro',56.360,8.616,1],['Silkeborg',56.170,9.545,1],['Viborg',56.453,9.402,1],['Skjern',55.950,8.500,1],['Ringkøbing',56.090,8.244,1],
+ ['Sunds',56.207,9.013],['Vildbjerg',56.200,8.766],['Aulum',56.262,8.788],['Videbæk',56.087,8.629],['Kibæk',56.036,8.853],['Bording',56.159,9.235],['Karup',56.307,9.166],['Give',55.845,9.239],['Struer',56.491,8.591],['Skive',56.566,9.027],['Lemvig',56.549,8.310],['Grindsted',55.757,8.927],['Billund',55.731,9.108],['Hvide Sande',56.004,8.130],['Tarm',55.911,8.529],['Ejstrupholm',56.030,9.290]];
+const K=4.3, cx=300, cy=262, cos=Math.cos(56.14*Math.PI/180);
+const P=(la,lo)=>[cx+(lo-8.973)*cos*111*K, cy-(la-56.139)*111*K];
+const svgNS='http://www.w3.org/2000/svg', map=document.getElementById('map');
+const el=(n,a,p=map)=>{const e=document.createElementNS(svgNS,n);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e};
+{const [zx,zy]=P(56.11823,8.93457);el('circle',{cx:zx,cy:zy,r:15*K,fill:'#c24a32','fill-opacity':.12,stroke:'#c24a32','stroke-width':1.6,'stroke-dasharray':'5 4'});const z=el('text',{x:zx,y:zy-15*K+16,'text-anchor':'middle',style:'font:700 12px Barlow Condensed,sans-serif;letter-spacing:.06em;text-transform:uppercase;fill:#a8281b'});z.textContent='Fast lokalpris · Herning, Ikast, Sunds'}
+[30,60].forEach(r=>{el('circle',{class:'ring',cx,cy,r:r*K});const t=el('text',{class:'rl',x:cx+4,y:cy-r*K-5});t.textContent=`ca. ${r} km`});
+TOWNS.forEach(([n,la,lo,f])=>{const [x,y]=P(la,lo);if(n==='Herning')return;
+  el('line',{x1:cx,y1:cy,x2:x,y2:y,stroke:f?'#c24a32':'#dcd5c8','stroke-width':f?1.2:.8,'stroke-opacity':f?.45:.8});
+  const g=el('g',{class:'town'+(f?' first':'')});el('circle',{cx:x,cy:y,r:f?5:3.2},g);
+  const t=el('text',{x:x+(x<cx?-8:8),y:y+4,'text-anchor':x<cx?'end':'start'},g);t.textContent=n});
+const hq=el('g',{class:'hq'});el('circle',{class:'p',cx,cy,r:9},hq);el('circle',{cx,cy,r:9,fill:'#c24a32',stroke:'#fff','stroke-width':3},hq);
+const ht=el('text',{x:cx+14,y:cy+26,'text-anchor':'start',style:'font:700 13px Barlow Condensed,sans-serif;letter-spacing:.06em;text-transform:uppercase;fill:#15212a'},hq);ht.textContent='HV · Herning';
+const towns=document.getElementById('towns');
+TOWNS.filter(t=>t[3]).forEach(t=>{const a=document.createElement('a');a.href='#pris';a.textContent='Container i '+t[0];towns.appendChild(a)});
+
+/* ---------- FAQ ---------- */
+const FAQ=[
+ ['Hvad koster det at leje en container?','Levering 1.500 kr. + afhentning 1.500 kr. = 3.000 kr., og de første 30 dage er inkluderet. Derefter 28 kr./dag for standard og 33 kr./dag for isoleret. Den faste pris gælder i hele Herning, Ikast og Sunds – længere væk lægges et kilometertillæg til, som du ser med det samme i prisberegneren. Priser for private er inkl. moms.'],
+ ['Hvor hurtigt kan I levere?','Typisk inden for 1–3 hverdage. Du vælger selv datoen i bookingen.'],
+ ['Hvor stor er en container?','Standard: indvendigt 587 × 235 × 237 cm, ca. 33 m³ – plads til ca. 270 flyttekasser. Isoleret: 572 × 220 × 226 cm, ca. 29 m³ – ca. 250 flyttekasser.'],
+ ['Skal jeg vælge standard eller isoleret?','Standard giver mest plads og passer til robuste ting. Isoleret mindsker risikoen for kondens og passer til møbler, tekstiler, bøger og længere opbevaring, især om vinteren.'],
+ ['Kan containeren stå på græs?','Ja, hvis der lægges et stabilt fundament af fliser, beton eller kraftige bjælker. Ellers skal underlaget være fast og plant: asfalt, beton eller komprimeret grus.'],
+ ['Må containeren stå på vejen?','Kun med tilladelse fra kommunen (vejmyndigheden), som du selv søger i god tid. På egen grund kræves normalt ingen tilladelse.'],
+ ['Hvad skal jeg gøre klar før levering?','Adgangsvejen skal være mindst 3,5 m bred og 4 m høj. Fjern biler, materialer og grene, og tjek luftledninger og trækroner. Kan bilen ikke komme til, opkræves forgæves kørsel svarende til prisen for afhentning.'],
+ ['Er mine ting forsikret?','Tjek med dit eget forsikringsselskab, hvordan indholdet er dækket. Vi anbefaler en godkendt containerlås.'],
+ ['Får jeg penge tilbage, hvis jeg afleverer før 30 dage?','Nej. De inkluderede 30 dage refunderes ikke, men du betaler ingen dagsleje, før de er brugt.'],
+ ['Kan jeg købe en container?','Ja, vi sælger brugte 20-fods containere på bestilling, leveret med kran. Pris og stand får du af en medarbejder på 97 12 23 23.']
+];
+const fl=document.getElementById('faqlist');
+FAQ.forEach(([q,a],i)=>{const d=document.createElement('details');d.className='q fade';d.style.transitionDelay=(i*.04)+'s';if(!i)d.open=true;
+  const s=document.createElement('summary');s.textContent=q;const b=document.createElement('div');b.textContent=a;d.append(s,b);fl.appendChild(d);io.observe(d)});
+
+/* ---------- scripted AI assistant (demo) ---------- */
+const TEL='Ring på 97 12 23 23 (man–tors 8–16, fre 8–14) eller skriv til booking@containerudlejning.dk.';
+const KB=[
+ [['isoleret','kondens','vinter','fugt'],'Isoleret mindsker risikoen for kondens og passer til møbler, tekstiler, bøger og længere opbevaring, især om vinteren. Kondens kan dog opstå i begge typer, så pak med luft omkring tingene.\nIsoleret koster 33 kr./dag efter de første 30 dage (standard 28 kr./dag).\nDu kan vælge isoleret, når du booker.'],
+ [['bred','indkørsel','adgang','komme ind','smal'],'Vejen ind skal være mindst 3,5 m bred og 4 m høj. Er den smallere, skal en medarbejder vurdere forholdene – kan bilen ikke komme til, opkræves forgæves kørsel.\n'+TEL],
+ [['græs','plæne','underlag','jord'],'Ja, containeren kan stå på græs, hvis der lægges et stabilt fundament, fx fliser, beton eller kraftige bjælker. Kranbilen skal også kunne komme til (3,5 m bred og 4 m høj adgang).\nBook på containerudlejning.dk.'],
+ [['vej','fortov','tilladelse','kommune'],'På vej eller fortov må containeren kun stå med tilladelse fra kommunen, som du selv søger i god tid. På egen grund skal der normalt ikke søges.\nHar du brug for hjælp: '+TEL],
+ [['hurtig','levere','levering','hvornår','ikast','herning','dato'],'Vi leverer typisk inden for 1–3 hverdage, og du vælger selv datoen i bookingen. Vi dækker primært Midt- og Vestjylland – indtast adressen i bookingen for at se, om vi leverer hos dig.'],
+ [['lørdag','søndag','weekend'],'Weekendlevering kan jeg ikke love – det skal en medarbejder vurdere. Normalt leverer vi inden for 1–3 hverdage.\n'+TEL],
+ [['købe','køb','sælger'],'Ja, vi sælger brugte 20-fods containere på bestilling, leveret med kran. Pris og stand får du af en medarbejder.\n'+TEL],
+ [['forsikr'],'Du skal selv tjekke med dit forsikringsselskab, hvordan indholdet er dækket. Vi anbefaler en godkendt containerlås – en medarbejder oplyser prisen.\n'+TEL],
+ [['eternit','asbest','olie','farligt','maling','kemikal'],'Farligt affald og asbest må ikke komme i containeren, og eternit skal altid afklares med en medarbejder først.\n'+TEL],
+ [['penge tilbage','refunder','før 30','tidligt'],'Nej, de 30 dage er inkluderet i prisen for levering og afhentning (3.000 kr.), og ubrugte dage refunderes ikke.\nDu kan bestille afhentning online, på telefon eller mail.'],
+ [['stor','størrelse','mål','m³','kasser','plads'],'Standard: 587 × 235 × 237 cm indvendigt, ca. 33 m³ – plads til ca. 270 flyttekasser. Isoleret: 572 × 220 × 226 cm, ca. 29 m³ – ca. 250 flyttekasser.\nBook på containerudlejning.dk.'],
+ [['lås','aflås','tyv'],'Begge typer kan aflåses, og vi har kraftige, godkendte containerlåse. Prisen oplyses af en medarbejder.\n'+TEL],
+ [['flytte','ny adresse','flytning'],'Vi leverer en tom container, du pakker i eget tempo, og vi kører den fyldte container til din nye adresse. Flytning er tre kørsler – levering, flyttekørsel og afhentning på den nye adresse. Sæt flueben ved flytning i prisberegneren og skriv begge adresser, så ser du prisen med det samme.'],
+ [['affald','affaldscontainer','byggeaffald'],'Vi har åbne og lukkede affaldscontainere på 12–16 m³. Der er 7 dage inkluderet på åbne containere, og affaldet afregnes pr. ton (min. 1 ton). Må ikke fyldes over kanten.\nBook på containerudlejning.dk.'],
+ [['affaldscontainer','affald','oprydning','rydde op','skrald'],'Ja – bestiller du en affaldscontainer sammen med din opbevaringscontainer, tager vi den med tilbage på samme tur, når vi henter. Du betaler ingen ekstra kørsel, kun for affaldet, som afregnes pr. ton efter type. Én lastbil i stedet for to – godt for prisen og miljøet.\nVælg „Affaldscontainer“ under „Saml mere hos HV – og spar“ i prisberegneren.'],
+ [['sand','grus','muld','sandshoppen','stabilgrus','fliser','bed'],'Sand, grus og muld fra Sandshoppen kan komme med lastbilen på samme tur som containeren – så sparer du en kørsel, og du får det hele på én faktura. Vælg det under „Saml mere hos HV – og spar“ i prisberegneren – hver ekstra ydelse giver samlerabat.\nPrisen på selve varen står på bekræftelsen, eller ring 97 12 23 23.'],
+ [['åbent','åbningstid','kontakt','telefon','ring'],'Vi har åbent mandag–torsdag 8–16 og fredag 8–14. Tlf. 97 12 23 23, booking@containerudlejning.dk, Mørupvej 37, 7400 Herning.']
+];
+const B2B=['firma','virksomhed','tømrer','byggefirma','entreprenør','erhverv','cvr','murer','vvs','byggeplads','vi er et'];
+function priceAnswer(t){
+  let days=null,m;
+  if(m=t.match(/(\d+)\s*(måned|mdr|md\b|mnd)/))days=+m[1]*30;
+  else if(m=t.match(/(\d+)\s*uge/))days=+m[1]*7;
+  else if(m=t.match(/(\d+)\s*dag/))days=+m[1];
+  else if(/halvt år|halv år/.test(t))days=180;
+  else if(/(et|1) år|helt år/.test(t))days=360;
+  if(days==null)return null;
+  const iso=/isoler/.test(t), rate=iso?33:28, ex=Math.max(0,days-30), tot=3000+ex*rate;
+  let s=`Med 30 dage pr. måned er det ${days} dage. ${iso?'Isoleret':'Standard'}: levering 1.500 + afhentning 1.500 = 3.000 kr. for de første 30 dage`;
+  s+= ex?` + ${ex} dage × ${rate} kr. = ${kr(ex*rate)}\nI alt ${kr(tot)} inkl. moms.`:`.\nI alt 3.000 kr. inkl. moms.`;
+  if(!iso&&ex)s+=`\nIsoleret: 3.000 + ${ex} × 33 kr. = ${kr(3000+ex*33)} inkl. moms.`;
+  return s+'\nDu kan booke direkte på containerudlejning.dk.';
+}
+function b2bAnswer(t){          // business page: prices ex VAT, bundle with waste/gravel/crane
+  if(/koste|pris|hvad giver|måned|mdr|uge|dag|år/.test(t)&&/\d|pris|koste/.test(t)){
+    const E=eff(),m=(t.match(/(\d+)\s*(måned|mdr|md\b|mnd)/)||[])[1],days=m?+m*30:null;
+    let s='Erhvervspris ekskl. moms: levering 1.200 + afhentning 1.200 = 2.400 kr. med de første 30 dage. Derefter 22,40 kr./dag (isoleret 26,40), og fra 3. måned en fast månedspris på ca. 475 kr.';
+    if(days){const ex=Math.max(0,Math.min(days,60)-30),mo=Math.max(0,days-60)/30,tot=2400+ex*22.4+mo*475;s+=`\nFor ${m} ${+m===1?'måned':'måneder'} (standard): ca. ${kr(tot)} ekskl. moms pr. container.`}
+    return s+'\nPriserne bekræftes på tilbuddet. Skriv adressen i prisberegneren, eller ring 97 12 23 23.'}
+  if(/flere|antal|to containere|3 containere/.test(t))return 'Flere containere til samme plads regner vi gerne samlet på – ofte kan de komme på samme tur. Vælg antal i prisberegneren, eller ring 97 12 23 23 for et samlet tilbud.';
+  if(/affald|grus|sand|kran|samme tur|faktura/.test(t))return 'Kører vi allerede affald, grus eller kranarbejde til jer, kan containeren komme med på samme tur – samme bil og én faktura. Hver ekstra ydelse på samme tur giver samlerabat i prisberegneren.\n'+TEL;
+  if(/byggeplads|plads|underlag|placer/.test(t))return 'Containeren skal stå fast og plant – asfalt, beton eller komprimeret grus er fint på en byggeplads. Adgangsvejen skal være mindst 3,5 m bred og 4 m høj, og kranen rækker typisk 8–13 m.\n'+TEL;
+  return null;
+}
+function answer(q){
+  const t=q.toLowerCase();
+  if(PAGE==='erhverv'){const r=b2bAnswer(t);if(r)return r}
+  else if(B2B.some(w=>t.includes(w)))return 'Online booking er kun for private. Som virksomhed får du prisen af en medarbejder, som også kan se på samlet levering med affald eller grus.\n'+TEL;
+  if(/affald/.test(t)&&/(tage|med|retur|samme tur|hent|tilbage|flyt)/.test(t)&&PAGE!=='erhverv')
+    return 'Ja – bestiller du en affaldscontainer sammen med din opbevaringscontainer, tager vi den med tilbage på samme tur, når vi henter. Du betaler ingen ekstra kørsel, kun for affaldet, som afregnes pr. ton efter type. Én lastbil i stedet for to – godt for prisen og miljøet.\nVælg „Affaldscontainer“ under „Saml mere hos HV – og spar“ i prisberegneren.';
+  const p=priceAnswer(t);if(p)return p;
+  if(/koste|pris|hvad giver/.test(t))return 'Levering 1.500 kr. + afhentning 1.500 kr. = 3.000 kr. inkl. moms, og de første 30 dage er inkluderet – fast pris i Herning, Ikast og Sunds. Bor du længere væk, så skriv din adresse i prisberegneren, så ser du prisen med det samme. Derefter 28 kr./dag (standard) eller 33 kr./dag (isoleret).\nFx 3 mdr.: 4.680 kr. · 6 mdr.: 7.200 kr. · 12 mdr.: 12.240 kr.\nBook på containerudlejning.dk.';
+  let best=null,sc=0;KB.forEach(([ks,a])=>{const s=ks.filter(k=>t.includes(k)).length;if(s>sc){sc=s;best=a}});
+  if(best)return best;
+  return 'Det kan jeg ikke svare sikkert på ud fra vores oplysninger, så en medarbejder hjælper dig gerne.\n'+TEL;
+}
+const chat=document.getElementById('chat'),log=document.getElementById('log'),cq=document.getElementById('cq');
+function add(r,t){const d=document.createElement('div');d.className='msg '+r;d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
+add('bot',PAGE==='erhverv'?'Hej! Jeg er HV\'s AI-assistent – en medarbejder kan altid tage over på 97 12 23 23. Jeg kan svare på spørgsmål om containere til byggepladsen og erhvervspriser ekskl. moms – og lave et tilbud med jer her i chatten, skrevet eller med stemmen. Hvad vil I gerne?':'Hej! Jeg er HV\'s AI-assistent – en medarbejder kan altid tage over på 97 12 23 23. Jeg kan svare på spørgsmål om flytte- og opbevaringscontainere – og du kan bestille en container her i chatten, skrevet eller med stemmen. Hvad vil du gerne?');
+async function ask(q){q=q.trim();if(!q)return;add('user',q);cq.value='';const b=add('bot typing','Skriver…');
+  const pause=new Promise(r=>setTimeout(r,reduce?0:550));let r;
+  try{r=(bk||ORDER_RE.test(q.toLowerCase()))?await bookStep(q):answer(q)}catch(e){r='Noget gik galt her – ring 97 12 23 23, så hjælper en medarbejder.'}
+  await pause;b.className='msg bot';b.textContent=r;log.scrollTop=log.scrollHeight;speak(r)}
+/* ---------- order through the assistant – typed or spoken. Guided steps fill in the page's own calculator, so the price is the calculator's price.
+   Per HV's agent rules the chat asks for no name/phone/e-mail: those come on the normal booking step (private) or the quote form (business). ---------- */
+const ORDER_RE=/\b(bestil|bestille|book|booke|jeg vil (gerne )?(leje|have|bestille)|kan jeg bestille|få et tilbud|lav et tilbud|tilbudsforespørgsel|order)\b/;
+let bk=null;
+const WD=['søndag','mandag','tirsdag','onsdag','torsdag','fredag','lørdag'],MON=['januar','februar','marts','april','maj','juni','juli','august','september','oktober','november','december'];
+const nextWeekdays=n=>{const o=[],d=new Date();d.setHours(12);while(o.length<n){d.setDate(d.getDate()+1);if(d.getDay()%6)o.push(new Date(d))}return o};
+const fmtD=d=>WD[d.getDay()]+' '+d.getDate()+'. '+MON[d.getMonth()];
+function parseDate(t){const now=new Date();now.setHours(12);
+  if(/hurtig|snarest|asap|første|tidligst/.test(t))return nextWeekdays(1)[0];
+  if(/i morgen/.test(t)){const d=new Date(now);d.setDate(d.getDate()+1);return d}
+  if(/overmorgen/.test(t)){const d=new Date(now);d.setDate(d.getDate()+2);return d}
+  let m=t.match(/(\d{1,2})\.?\s*(januar|februar|marts|april|maj|juni|juli|august|september|oktober|november|december)/);
+  if(m){const d=new Date(now.getFullYear(),MON.indexOf(m[2]),+m[1],12);if(d<now)d.setFullYear(d.getFullYear()+1);return d}
+  m=t.match(/(\d{1,2})\s*[\/.-]\s*(\d{1,2})/);if(m){const d=new Date(now.getFullYear(),+m[2]-1,+m[1],12);if(d<now)d.setFullYear(d.getFullYear()+1);return d}
+  const w=WD.findIndex(x=>t.includes(x));if(w>=0){const d=new Date(now);do d.setDate(d.getDate()+1);while(d.getDay()!==w);return d}
+  return null}
+const WORDN={en:1,et:1,to:2,tre:3,fire:4,fem:5,seks:6,syv:7,otte:8,ni:9,ti:10,tolv:12};
+function parseMonths(t){if(/halvt år|halv år/.test(t))return 6;if(/(et|1) år|helt år/.test(t))return 12;const m=t.match(/(\d+)/);if(m)return +m[1];for(const k in WORDN)if(new RegExp('\\b'+k+'\\b').test(t))return WORDN[k];return null}
+const DEF_CHIPS=PAGE==='erhverv'?['Få et tilbud','Pris for 6 måneder?','Flere containere til samme plads?','Kan affald komme med samme tur?','Hvad skal underlaget være?','Kan vi købe en container?']:['Bestil en container','Hvad koster 2 måneder?','Skal jeg vælge isoleret?','Kan I tage sand med?','Kan den stå på min plæne?','Kan I komme på lørdag?'];
+function setChips(list){const box=document.getElementById('chips');box.innerHTML='';list.forEach(c=>{const b=document.createElement('button');b.type='button';b.textContent=c;b.onclick=()=>ask(c);box.appendChild(b)})}
+const ADDS=PAGE==='erhverv'?['Affaldscontainer','Stabilgrus','Kranarbejde','Sand']:['Sand','Stabilgrus','Muld','Affaldscontainer'];
+const yes=t=>/^(ja|jo|jep|ok|okay|rigtigt|korrekt|det er rigtigt|bekræft|send|gør det|yes)/.test(t);
+function summary(){
+  const lines=[`• Container: ${bk.type==='iso'?'isoleret (ca. 29 m³)':'standard (ca. 33 m³)'}${qty>1?' × '+qty:''}`,`• Adresse: ${bk.adr.tekst}`,`• Levering: ${fmtD(bk.date)}`,`• Periode: ${bk.months} ${bk.months===1?'måned':'måneder'}`];
+  if(bk.adds.length)lines.push(`• Samme tur: ${bk.adds.join(', ')} (pris på varen følger)`);
+  const VAT=eff().moms===false?'ekskl. moms':'inkl. moms',st=document.getElementById('pstatus').textContent;
+  return (PAGE==='erhverv'?'Her er jeres tilbud:\n':'Her er din bestilling:\n')+lines.join('\n')+`\nPris i alt: ${kr(totCur)} ${VAT}${/Fast pris/.test(st)?' – fast pris':' – estimat, bekræftes'}.\n`+(PAGE==='erhverv'?'Skal jeg lægge det i tilbudsforespørgslen?':'Skal jeg bekræfte bestillingen?')}
+async function bookStep(q){
+  const t=q.toLowerCase().trim();
+  if(/annuller|afbryd|glem det|stop bestilling/.test(t)){bk=null;setChips(DEF_CHIPS);return 'Helt i orden – bestillingen er stoppet. Spørg bare, hvis der er andet.'}
+  if(!bk){bk={step:'adr',adds:[]};setChips([]);return (PAGE==='erhverv'?'Lad os lave et tilbud. Hvor ligger pladsen?':'Lad os bestille en container. Hvor skal den stå?')+' Skriv eller sig adressen – fx „Dalgasgade 20, Herning“.'}
+  switch(bk.step){
+    case 'adr':{const look=async fz=>{const r=await fetch('https://api.dataforsyningen.dk/autocomplete?type=adresse&per_side=8'+(fz?'&fuzzy=':'')+'&q='+encodeURIComponent(q));return (await r.json()).filter(v=>v.data&&v.data.x).map(x=>({tekst:x.tekst,lat:x.data.y,lon:x.data.x,postnr:x.data.postnr,id:x.data.adgangsadresseid,by:(x.data.postnrnavn||'').toLowerCase()}))};
+      let c=await look(false),fuzzy=false;if(!c.length){c=await look(true);fuzzy=true}
+      const num=(t.match(/\b(\d+[a-zæøå]?)\b/)||[])[1],hnr=num&&new RegExp('^[^,]*\\s'+num+'[a-zæøå]?,','i');
+      if(num){let exact=c.filter(x=>hnr.test(x.tekst));
+        if(!exact.length){const f2=await look(true);exact=f2.filter(x=>hnr.test(x.tekst)&&(!x.by||t.includes(x.by)));if(exact.length)fuzzy=true}   // e.g. only 10B/10C exist
+        if(exact.length)c=exact.sort((a,b)=>a.tekst.length-b.tekst.length)}   // right house number first, plain address before flats
+      const town=c.filter(x=>x.by&&t.includes(x.by));if(town.length)c=town;else if(fuzzy)c=c.filter(x=>air(BRAIN.depot,x)<100);   // prefer the town the customer named, never far-away look-alikes
+      if(!c.length){bk.miss=(bk.miss||0)+1;if(bk.miss>=2){setChips(['Tal med en medarbejder','Annuller']);return 'Jeg kan desværre ikke finde adressen. Du kan skrive den i prisberegneren på siden, eller ringe 97 12 23 23, så hjælper vi.'}
+        return 'Den adresse kunne jeg ikke finde i Danmarks Adresser. Prøv med vejnavn, husnummer og by.'}
+      bk.miss=0;bk.cands=c.slice(0,3);bk.step='adrOk';
+      if(!fuzzy&&(c.length===1||(num&&new RegExp('^[^,]*\\s'+num+',','i').test(c[0].tekst)))&&(!num||hnr.test(c[0].tekst))){bk.cand=c[0];setChips(['Ja, det er rigtigt','Nej, ret adressen']);return `Jeg fandt: ${c[0].tekst}. Er det rigtigt?`}
+      bk.cand=null;setChips([...bk.cands.map(x=>x.tekst),'Ingen af dem']);return 'Mente du en af disse?'}
+    case 'adrOk':
+      {const hit=(bk.cands||[]).find(x=>t===x.tekst.toLowerCase());
+       if(hit)bk.cand=hit;
+       else if(/ingen af dem|^nej|ret adressen/.test(t)){bk.step='adr';setChips([]);return 'Skriv eller sig adressen igen – gerne med husnummer og by.'}
+       else if(!yes(t)||!bk.cand){bk.step='adr';return bookStep(q)}}      // a new address typed or spoken instead of answering
+      document.getElementById('adr1').value=bk.cand.tekst;await setAddr('from',bk.cand);bk.adr=bk.cand;bk.step='type';
+      setChips(['Standard · 33 m³','Isoleret · 29 m³','Hvad er forskellen?']);
+      return (tripPrice(A.from||bk.adr).kind==='in'?'Fint – adressen ligger inden for den faste pris. ':'Fint – adressen ligger uden for Herning, Ikast og Sunds, så der kommer et kilometertillæg. ')+'Vil du have standard (ca. 33 m³) eller isoleret (ca. 29 m³)?';
+    case 'type':
+      if(/forskel/.test(t))return 'Standard giver mest plads og passer til robuste ting. Isoleret mindsker risikoen for kondens og passer til møbler, tekstiler og længere opbevaring. Hvilken vil du have?';
+      if(/isoler/.test(t))bk.type='iso';else if(/standard|almindelig|33/.test(t))bk.type='std';else return 'Standard eller isoleret?';
+      document.querySelector(`.seg button[data-type="${bk.type}"]`).click();
+      if(PAGE==='erhverv'){bk.step='qty';setChips(['1','2','3','4 eller flere']);return 'Hvor mange containere skal I bruge?'}
+      bk.step='months';setChips(['1 måned','2 måneder','3 måneder','6 måneder','Ved ikke endnu']);return 'Hvor længe skal du bruge den?';
+    case 'qty':{const n=parseMonths(t)||1,q2=Math.min(4,Math.max(1,n));document.querySelector(`#qtybox button[data-q="${q2}"]`).click();bk.step='months';setChips(['1 måned','3 måneder','6 måneder','12 måneder','Ved ikke endnu']);return 'Og hvor længe skal I bruge '+(q2>1?'dem':'den')+'?'}
+    case 'months':{let m=/ved ikke/.test(t)?1:parseMonths(t);if(!m)return 'Hvor mange måneder? Fx „3 måneder“.';m=Math.min(24,Math.max(1,m));bk.months=m;mdr.value=m;calc();
+      bk.step='date';setChips([...nextWeekdays(4).map(fmtD),'Hurtigst muligt']);
+      return (/ved ikke/.test(t)?'Så regner jeg med 1 måned – du kan beholde den så længe, du vil. ':'')+'Hvornår skal vi levere? Vi leverer typisk inden for 1–3 hverdage.'}
+    case 'date':{const d=parseDate(t);if(!d)return 'Den dato fangede jeg ikke – skriv fx „mandag“ eller „14. oktober“.';
+      if(d.getDay()%6===0)return 'Weekendlevering skal aftales med en medarbejder – vælg en hverdag, eller ring 97 12 23 23.';
+      bk.date=d;bk.step='adds';setChips([...ADDS,'Nej tak']);
+      return `${fmtD(d)} – noteret. Skal der noget med på samme tur? ${PAGE==='erhverv'?'Affaldscontainer, stabilgrus eller kranarbejde':'Sand, stabilgrus, muld eller en affaldscontainer'} – så sparer du en kørsel.`}
+    case 'adds':{const pick=ADDS.filter(a=>t.includes(a.toLowerCase())||(a==='Stabilgrus'&&/grus/.test(t))||(a==='Affaldscontainer'&&/affald/.test(t))||(a==='Kranarbejde'&&/kran/.test(t)));
+      if(pick.length&&!/nej/.test(t)){pick.forEach(p=>{if(!bk.adds.includes(p))bk.adds.push(p)});setChips([...ADDS.filter(a=>!bk.adds.includes(a)),'Det er alt']);
+        document.querySelectorAll('.chipsel input').forEach(c=>{c.checked=bk.adds.includes(c.value);});calc();return `${bk.adds.join(' og ')} kommer med. Andet – eller er det alt?`}
+      document.querySelectorAll('.chipsel input').forEach(c=>{c.checked=bk.adds.includes(c.value)});calc();
+      bk.step='confirm';setChips(PAGE==='erhverv'?['Ja, læg det i forespørgslen','Ret noget','Tal med en medarbejder']:['Bekræft bestilling','Ret noget','Tal med en medarbejder']);return summary()}
+    case 'confirm':
+      if(/medarbejder|ring|menneske/.test(t)){bk=null;setChips(DEF_CHIPS);return 'Selvfølgelig. '+TEL}
+      if(/ret/.test(t)){bk.step='fix';setChips(['Adresse','Container','Periode','Dato','Samme tur']);return 'Hvad vil du rette?'}
+      if(!yes(t))return PAGE==='erhverv'?'Skal jeg lægge det i tilbudsforespørgslen? Svar ja, eller sig hvad der skal rettes.':'Skal jeg bekræfte? Svar ja, eller sig hvad der skal rettes.';
+      {const done=bk;bk=null;setChips(DEF_CHIPS);
+       if(PAGE==='erhverv'){const f=document.getElementById('qform');if(f){const set=(n,v)=>{const el=f.elements[n];if(el)el.value=v};
+         set('Pladsens adresse',done.adr.tekst);set('Samme tur',done.adds.join(', '));
+         const per=f.elements['Periode'];if(per){const m=done.months;per.value=m<=1?'1 måned':m<=3?'2–3 måneder':m<=6?'3–6 måneder':m<=12?'6–12 måneder':'Mere end 12 måneder'}
+         set('Antal',qty>=4?'4 eller flere':String(qty));set('Besked',`${done.type==='iso'?'Isoleret':'Standard'} container, levering ${fmtD(done.date)}. Beregnet pris ${kr(totCur)} ekskl. moms.`);
+         setTimeout(()=>{openChat(false);document.getElementById('tilbud').scrollIntoView({behavior:reduce?'auto':'smooth'})},900)}
+         return 'Tilbudsforespørgslen er udfyldt med adresse, periode, antal og samme tur. Tilføj firma og kontaktperson, og tryk send – så får I en samlet pris.'}
+       setTimeout(()=>{openChat(false);document.getElementById('pris').scrollIntoView({behavior:reduce?'auto':'smooth'})},900);
+       return `Tak – din bestilling er klar til ${fmtD(done.date)}. Prisberegneren er udfyldt, så du kan se hele prisen. Næste trin er navn, kontakt og betaling i bookingen, og så får du bekræftelse med det samme.\n(Designudkast: der er ikke bestilt noget.)`}
+    case 'fix':{const map={adresse:'adr',container:'type',periode:'months',dato:'date','samme tur':'adds'};const k=Object.keys(map).find(x=>t.includes(x));if(!k)return 'Adresse, container, periode, dato eller samme tur?';
+      bk.step=map[k];if(k==='samme tur'){bk.adds=[];setChips([...ADDS,'Nej tak']);return 'Hvad skal med på samme tur?'}
+      if(k==='adresse'){setChips([]);return 'Skriv eller sig den rigtige adresse.'}
+      if(k==='container'){setChips(['Standard · 33 m³','Isoleret · 29 m³']);return 'Standard eller isoleret?'}
+      if(k==='periode'){setChips(['1 måned','2 måneder','3 måneder','6 måneder']);return 'Hvor længe?'}
+      setChips([...nextWeekdays(4).map(fmtD),'Hurtigst muligt']);return 'Hvornår skal vi levere?'}
+  }
+  bk=null;setChips(DEF_CHIPS);return 'Lad os starte forfra – skriv „bestil en container“.'}
+/* voice: speak the question (Danish speech recognition) and optionally hear the answer read aloud */
+const spkBtn=document.getElementById('chat-spk'),micBtn=document.getElementById('cmic');let talk=false;
+function speak(t){if(!talk||!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/97 12 23 23/g,'97, 12, 23, 23'));u.lang='da-DK';u.rate=1.02;const v=speechSynthesis.getVoices().find(v=>/^da/i.test(v.lang));if(v)u.voice=v;speechSynthesis.speak(u)}
+if('speechSynthesis' in window){spkBtn.onclick=()=>{talk=!talk;spkBtn.setAttribute('aria-pressed',talk);if(!talk)speechSynthesis.cancel()}}else spkBtn.hidden=true;
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+let micOk=false;try{micOk=sessionStorage.getItem('cu_mic')==='1'}catch(e){}
+function askMic(go){const d=document.createElement('div');d.className='micok';
+  d.innerHTML='Talegenkendelse sker i din browsers taletjeneste – i Chrome sendes lyden til Google, i Safari til Apple. Vi gemmer hverken lyd eller tekst. <div><button type="button">OK, brug mikrofonen</button><button type="button">Nej tak</button></div>';
+  const [y,n]=d.querySelectorAll('button');y.onclick=()=>{micOk=true;try{sessionStorage.setItem('cu_mic','1')}catch(e){}d.remove();go()};n.onclick=()=>d.remove();log.appendChild(d);log.scrollTop=log.scrollHeight}
+if(SR){let rec=null;micBtn.onclick=()=>{if(rec){rec.stop();return}if(!micOk){askMic(()=>micBtn.onclick());return}
+  rec=new SR();rec.lang='da-DK';rec.interimResults=true;rec.maxAlternatives=1;micBtn.classList.add('rec');cq.placeholder='Jeg lytter…';
+  if(!talk&&'speechSynthesis' in window){talk=true;spkBtn.setAttribute('aria-pressed',true)}   // spoken question → spoken answer
+  rec.onresult=e=>{const r=[...e.results].map(x=>x[0].transcript).join('');cq.value=r;if(e.results[e.results.length-1].isFinal)ask(r)};
+  rec.onend=rec.onerror=()=>{micBtn.classList.remove('rec');cq.placeholder='Skriv eller tryk på mikrofonen…';rec=null};rec.start()}}
+else micBtn.hidden=true;
+setChips(DEF_CHIPS);
+document.getElementById('cform').onsubmit=e=>{e.preventDefault();ask(cq.value)};
+const openChat=o=>{chat.classList.toggle('open',o);chat.setAttribute('aria-hidden',!o);if(o)setTimeout(()=>cq.focus(),200)};
+document.querySelectorAll('[data-open-chat]').forEach(b=>b.onclick=()=>openChat(!chat.classList.contains('open')));
+document.getElementById('chat-x').onclick=()=>openChat(false);
+addEventListener('keydown',e=>{if(e.key==='Escape')openChat(false)});
+
+
+/* ---------- cookie consent (ePrivacy/cookiebekendtgørelsen + GDPR): nothing optional runs before an active yes ---------- */
+const CC_KEY='cu_consent',CC_VER=1,cc=document.getElementById('cc');
+const ccRead=()=>{try{const c=JSON.parse(localStorage.getItem(CC_KEY)||'null');return c&&c.v===CC_VER&&Date.now()-c.t<365*864e5?c:null}catch(e){return null}};
+function ccApply(c){
+  gtag('consent','update',{analytics_storage:c.stat?'granted':'denied',ad_storage:c.mkt?'granted':'denied',ad_user_data:c.mkt?'granted':'denied',ad_personalization:c.mkt?'granted':'denied'});
+  // optional tags are written as <script type="text/plain" data-consent="statistik|markedsfoering" data-src="…"> and only start after consent
+  document.querySelectorAll('script[type="text/plain"][data-consent]').forEach(el=>{const ok=(el.dataset.consent==='statistik'&&c.stat)||(el.dataset.consent==='markedsfoering'&&c.mkt);
+    if(ok&&!el.dataset.done){const n=document.createElement('script');if(el.dataset.src)n.src=el.dataset.src;else n.textContent=el.textContent;n.async=true;document.head.appendChild(n);el.dataset.done=1}});
+}
+function ccSave(stat,mkt){const c={v:CC_VER,t:Date.now(),stat:!!stat,mkt:!!mkt};try{localStorage.setItem(CC_KEY,JSON.stringify(c))}catch(e){}ccApply(c);cc.hidden=true}
+function ccOpen(){const c=ccRead();document.getElementById('cc-stat').checked=!!(c&&c.stat);document.getElementById('cc-mkt').checked=!!(c&&c.mkt);
+  const custom=!!c;document.getElementById('cc-opts').hidden=!custom;document.getElementById('cc-save').hidden=!custom;document.getElementById('cc-custom').hidden=custom;cc.hidden=false;document.getElementById('cc-no').focus()}
+document.getElementById('cc-yes').onclick=()=>ccSave(true,true);
+document.getElementById('cc-no').onclick=()=>ccSave(false,false);
+document.getElementById('cc-custom').onclick=()=>{document.getElementById('cc-opts').hidden=false;document.getElementById('cc-save').hidden=false;document.getElementById('cc-custom').hidden=true};
+document.getElementById('cc-save').onclick=()=>ccSave(document.getElementById('cc-stat').checked,document.getElementById('cc-mkt').checked);
+document.querySelectorAll('[data-cookie-settings]').forEach(a=>a.onclick=e=>{e.preventDefault();ccOpen()});
+{const c=ccRead();if(c)ccApply(c);else cc.hidden=false}
+if(location.hash==='#cookieindstillinger')ccOpen();
+
+/* keep the whole hero copy on the first screen: lift it when it would run past the bottom edge */
+function fitHero(){const r=document.documentElement,inner=document.querySelector('.hero .inner');if(!inner)return;
+  const wrap=inner.closest('.wrap'),room=()=>innerHeight-(innerWidth<=900?78:92);
+  const over=()=>{const top=wrap.getBoundingClientRect().top;   // the hero is pinned: measure against its own top
+    return Math.max(...[...inner.querySelectorAll('.hero-top > *, .hero-bottom > *')].filter(e=>e.offsetParent).map(e=>e.getBoundingClientRect().bottom))-top-room()};
+  r.style.setProperty('--hero-lift','0px');document.body.classList.remove('hero-compact');
+  if(over()>0){document.body.classList.add('hero-compact');         // short screens: drop the description and the secondary buttons first
+    const o=over();if(o>0)r.style.setProperty('--hero-lift',Math.min(innerWidth<=900?95:60,Math.ceil(o))+'px')}}   // never lift the copy over the truck
+window.__fitHero=fitHero;addEventListener('resize',fitHero);addEventListener('load',fitHero);document.fonts&&document.fonts.ready.then(fitHero);setTimeout(fitHero,300);
+/* burger + accordion dropdowns on small screens */
+const navEl=document.getElementById('nav'),burger=document.getElementById('burger'),small=matchMedia('(max-width:1120px)');
+burger.onclick=()=>{const o=!navEl.classList.contains('open');navEl.classList.toggle('open',o);burger.setAttribute('aria-expanded',o)};
+document.querySelectorAll('.nav ul.menu a.top').forEach(a=>a.addEventListener('click',e=>{if(!small.matches)return;e.preventDefault();const li=a.parentElement,was=li.classList.contains('exp');document.querySelectorAll('.nav li.exp').forEach(x=>x.classList.remove('exp'));li.classList.toggle('exp',!was)}));
+document.querySelectorAll('.ddp a').forEach(a=>a.addEventListener('click',()=>{navEl.classList.remove('open');burger.setAttribute('aria-expanded',false)}));
+/* ---------- menu: dropdown links to the chat, and page search ---------- */
+document.querySelectorAll('[data-open-chat-link]').forEach(a=>a.onclick=e=>{e.preventDefault();openChat(true)});
+const nsq=document.getElementById('nsq'),nres=document.getElementById('nres');
+const IDX=[...document.querySelectorAll('.ddp a')].map(a=>({t:a.querySelector('b').textContent,d:a.querySelector('small').textContent,h:a.getAttribute('href')}))
+  .concat(FAQ.map(([q,a])=>({t:q,d:a,h:'#faq',q})));
+const norm=x=>x.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ø/g,'o').replace(/æ/g,'ae').replace(/å/g,'a');
+let sel=-1;
+function renderRes(){const q=norm(nsq.value.trim());nres.innerHTML='';sel=-1;if(!q){nres.classList.remove('show');return}
+  const SYN={plaene:'graes',have:'graes',graesplaene:'graes',koste:'pris',koster:'pris',pris:'koster',priser:'koster',billig:'pris',kondens:'isoleret',fugt:'kondens',vinter:'isoleret',flytte:'flytning',flytning:'flyt',tyveri:'las',laas:'las',forsikring:'forsikr',leverer:'levering',hvornaar:'hverdage',hurtig:'hverdage',storrelse:'m3',stor:'kasser',kasser:'flyttekasser',indkorsel:'bred',bredde:'bred',firma:'erhverv',virksomhed:'erhverv',kobe:'kob',affald:'affaldscontainer',tilladelse:'kommune',vej:'kommune',weekend:'lordag',abent:'abningstid',telefon:'97 12 23 23'};
+  const words=q.split(/\s+/).flatMap(w=>SYN[w]?[w,SYN[w]]:[w]);const hits=IDX.map(it=>{const hay=norm(it.t+' '+it.d);const sc=words.reduce((n,w)=>n+(norm(it.t).includes(w)?3:0)+(hay.includes(w)?1:0),0);return[sc,it]}).filter(x=>x[0]>0).sort((a,b)=>b[0]-a[0]).slice(0,6);
+  hits.forEach(([,it])=>{const a=document.createElement('a');a.href=it.h;a.innerHTML='<b></b><small></small>';a.querySelector('b').textContent=it.t;a.querySelector('small').textContent=it.d;
+    a.onclick=e=>{if(it.h==='#chat'){e.preventDefault();openChat(true)}else if(it.q){e.preventDefault();openFaq(it.q)}closeRes()};nres.appendChild(a)});
+  const ask=document.createElement('a');ask.href='#';ask.className='ask';ask.innerHTML='<b>Spørg AI-assistenten</b><small></small>';ask.querySelector('small').textContent='„'+nsq.value.trim()+'"';
+  ask.onclick=e=>{e.preventDefault();openChat(true);ask_(nsq.value);closeRes()};nres.appendChild(ask);nres.classList.add('show')}
+function openFaq(q){const d=[...document.querySelectorAll('#faqlist details')].find(x=>x.querySelector('summary').textContent===q);document.getElementById('faq').scrollIntoView({behavior:'smooth'});if(d){d.open=true;setTimeout(()=>d.scrollIntoView({behavior:'smooth',block:'center'}),450)}}
+function closeRes(){nres.classList.remove('show');nsq.blur()}
+const ask_=q=>setTimeout(()=>ask(q),250);
+nsq.addEventListener('input',renderRes);
+nsq.addEventListener('keydown',e=>{const L=[...nres.querySelectorAll('a')];if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();sel=(sel+(e.key==='ArrowDown'?1:-1)+L.length)%L.length;L.forEach((a,i)=>a.classList.toggle('sel',i===sel))}
+  if(e.key==='Escape'){nsq.value='';closeRes()}});
+document.getElementById('nsearch').onsubmit=e=>{e.preventDefault();const L=[...nres.querySelectorAll('a')];(L[Math.max(sel,0)]||{click(){}}).click()};
+document.addEventListener('click',e=>{if(!e.target.closest('#nsearch'))nres.classList.remove('show')});
+
+
+/* ---------- rail ---------- */
+const rail=document.getElementById('rail'),railA=[...rail.querySelectorAll('a')];
+let kTarget=0,kS=0,mx=0,my=0,active=true;
+
+/* ---------- 3D scene lives in scene.js (ES module) ---------- */
+window.__story={k:0,active:true};
+hookScroll(k=>{window.__story.k=k});
+
+function hookScroll(cb){
+  const hint=document.querySelector('.scrollhint'),heroWrap=document.querySelector('.hero>.wrap');
+  const onScroll=()=>{
+    const y=scrollY,vh=innerHeight;
+    nav.classList.toggle('scrolled',y>40);
+    hint&&hint.classList.toggle('gone',y>80);
+    if(heroWrap){const pin=vh*.42,f=clamp((y-pin)/(vh*.3),0,1);heroWrap.style.opacity=1-f;heroWrap.style.visibility=f>=1?'hidden':''}   // hero copy fades once the pin is over, so it never covers the crane
+    const se=document.getElementById('story');const end=se.offsetTop+se.offsetHeight;
+    const secs=[...se.children],tops=secs.map(e=>e.offsetTop);
+    let k=0;for(let i=0;i<tops.length;i++){const a=tops[i],b=i+1<tops.length?tops[i+1]:a+secs[i].offsetHeight;if(y>=a){k=i+clamp((y-a)/(b-a),0,1)}}
+    k=clamp(k,0,5);
+    window.__story&&(window.__story.active=y<end);
+    rail.style.opacity=y<end-vh*.6?1:0;rail.style.pointerEvents=y<end-vh*.6?'auto':'none';
+    const idx=Math.round(k);railA.forEach((a,i)=>a.classList.toggle('on',i===idx));
+    if(cb)cb(k);
+  };
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+}
+})();
+</script>
+<script type="module" src="scene.js?v=20260930t"></script>
+</body>
+</html>
