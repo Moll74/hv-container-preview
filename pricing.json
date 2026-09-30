@@ -4,9 +4,12 @@
     "Rækkefølge: 1) adressePriser (en bestemt adresse)  2) postnrPriser (et postnummer)  3) lokalZone (hele postnumrene i 'postnumre' + luftlinje fra pladsen)  4) kmModel (vej-km ud over zonen).",
     "status: 'estimat' viser 'Estimat – bekræftes ved booking' på siden. Sæt 'bekraeftet', når HV har indsat egne tal.",
     "ALLE tal markeret 'estimat' er forslag fra designudkastet – de skal erstattes af HV-transports egne priser før noget går live.",
-    "samkoersel: fordel, når kunden tager sand, grus, muld eller en affaldscontainer med på samme tur. erhverv: priser ekskl. moms til erhvervssiden – kun de felter, der står her, afviger fra privatpriserne."
+    "samkoersel: fordel, når kunden tager sand, grus, muld eller en affaldscontainer med på samme tur. erhverv: priser ekskl. moms til erhvervssiden – kun de felter, der står her, afviger fra privatpriserne.",
+    "laas: godkendt containerlås som tilvalg med egen pris (pr. container). Beløbet er et eksempel – HV sætter prisen.",
+    "samkoersel er en samlerabat pr. ekstra ydelse – ikke gratis kørsel. affaldRetur er slået fra.",
+    "Ruteplanlægger og prismodel: designudkastet bruger en åben demo-ruteplanlægger (OSRM) og denne fil i browseren. Før lancering skal HV have sin egen ruteservice og en backend-prismodel på egen server, så priser og regler ikke kan ændres af kunden."
   ],
-  "version": "2026-09-30-udkast",
+  "version": "2026-09-30-udkast-2",
   "status": "estimat",
   "depot": {
     "navn": "HV-transport, Mørupvej 37, 7400 Herning",
@@ -39,7 +42,7 @@
   "afstand": {
     "routing": "https://router.project-osrm.org/route/v1/driving/",
     "vejfaktor": 1.3,
-    "_note": "vej-km hentes fra en åben ruteplanlægger; fejler den, bruges luftlinje × vejfaktor. Til drift bør HV bruge egen/betalt ruteservice"
+    "_note": "demo: vej-km hentes fra en åben ruteplanlægger (OSRM); fejler den, bruges luftlinje × vejfaktor. Før lancering skal HV bruge egen ruteservice og køre prismodellen på egen server"
   },
   "leje": {
     "inklDage": 30,
@@ -63,17 +66,22 @@
   "udenforOmraade": {
     "tekst": "Så langt kører vi normalt ikke med online-pris – ring 97 12 23 23, så finder vi en løsning."
   },
+  "laas": {
+    "aktiv": true,
+    "pris": 300,
+    "_note": "eksempel: godkendt containerlås inkl. moms pr. container – HV fastsætter prisen"
+  },
   "samkoersel": {
     "aktiv": true,
     "note": "pris på varen følger på bekræftelsen",
     "_note": "eksempel: samlerabat (inkl. moms) pr. ekstra ydelse på samme tur som containeren – fx sand, grus, muld eller affaldscontainer. Maks. 4 ydelser. HV sætter beløbet",
-    "affaldRetur": true,
-    "_note_retur": "kampagneforslag: en affaldscontainer bestilt sammen med opbevaringscontaineren hentes på returturen uden ekstra kørselspris – affaldet afregnes pr. ton som normalt. Skal godkendes af HV",
+    "affaldRetur": false,
+    "_note_retur": "slået fra: affaldscontainer på samme tur giver samlerabat som andre ydelser – ikke gratis kørsel (beslutning 30/9)",
     "fordelPrYdelse": 250,
     "maksYdelser": 4
   },
   "erhverv": {
-    "_note": "erhvervspriser ekskl. moms. Grundpris og dagspris fra HV_4 (2.400 kr. ekskl. for levering, afhentning og 30 dage; 22,40 kr./dag). Månedspris fra 3. måned er forslaget fra HV_1 (450–500 kr.) – her 475 kr.",
+    "_note": "EKSEMPELPRISER ekskl. moms – HV fastsætter erhvervspriserne. erhvervspriser ekskl. moms. Grundpris og dagspris fra HV_4 (2.400 kr. ekskl. for levering, afhentning og 30 dage; 22,40 kr./dag). Månedspris fra 3. måned er forslaget fra HV_1 (450–500 kr.) – her 475 kr.",
     "moms": false,
     "tur": {
       "basisPris": 1200
@@ -103,6 +111,10 @@
       "note": "affald, grus og kran på samme faktura",
       "fordelPrYdelse": 200,
       "maksYdelser": 4
+    },
+    "laas": {
+      "pris": 240,
+      "_note": "eksempel ekskl. moms"
     }
   }
 }

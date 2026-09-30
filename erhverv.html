@@ -517,6 +517,10 @@ footer .wrap>*{min-width:0}footer a{overflow-wrap:anywhere}
 footer .legal{flex-wrap:wrap;gap:8px 24px}
 footer .legal-links{display:flex;flex-wrap:wrap;gap:6px 16px}
 footer .legal-links a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+footer .social{display:flex;gap:10px;margin-top:18px}
+footer .social a{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.07);color:#c7d3d9;transition:background .2s,color .2s}
+footer .social a:hover{background:var(--rust2);color:#fff}
+footer .social-sand{margin-top:12px}footer .social-sand a{display:inline-flex;align-items:center;gap:7px}
 .micok{background:#fff8e6;border:1px solid #f0d9a0;border-radius:12px;padding:10px 12px;font-size:13.5px;line-height:1.45;color:#15212a;align-self:stretch}
 .micok div{display:flex;gap:8px;margin-top:8px}
 .micok button{border:0;border-radius:999px;padding:7px 12px;font:600 13px var(--fb);cursor:pointer;background:#15212a;color:#fff}
@@ -603,13 +607,13 @@ body.hero-compact .hero .hero-bottom{padding-top:6px}
 </head>
 <body data-page="erhverv">
 
-<div class="draft" role="note">Designudkast til HV-transport · ikke live · priser fra containerudlejning.dk, september 2026</div>
+<div class="draft" role="note">Designudkast til HV-transport · ikke live · erhvervspriserne er eksempler – HV fastsætter dem</div>
 
 <nav class="nav" id="nav" aria-label="Hovedmenu">
   <div class="wrap">
     <a class="logo" href="#top" aria-label="containerudlejning.dk – forside"><img src="img/logo-white.png" alt="containerudlejning.dk" width="196" height="48"></a>
     <ul class="menu">
-      <li class="dd"><a href="#story-1" class="top" aria-haspopup="true">Container<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><div class="ddp" role="menu"><a href="#story-1"><b>Container til byggepladsen</b><small>Aflåst lager til værktøj og materialer</small></a><a href="#story-2"><b>Standard eller isoleret</b><small>33 m³ eller 29 m³ · 20 fod</small></a><a href="#pris"><b>Lang leje</b><small>Fast månedspris fra 3. måned</small></a><a href="#koeb"><b>Køb en container</b><small>Brugte 20-fods på bestilling</small></a></div></li>
+      <li class="dd"><a href="#story-1" class="top" aria-haspopup="true">Container<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><div class="ddp" role="menu"><a href="#story-1"><b>Container til byggepladsen</b><small>Låsbart lager til værktøj og materialer</small></a><a href="#story-2"><b>Standard eller isoleret</b><small>33 m³ eller 29 m³ · 20 fod</small></a><a href="#pris"><b>Lang leje</b><small>Fast månedspris fra 3. måned</small></a><a href="#koeb"><b>Køb en container</b><small>Brugte 20-fods på bestilling</small></a></div></li>
       <li class="dd"><a href="#pris" class="top" aria-haspopup="true">Priser<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><div class="ddp" role="menu"><a href="#pris"><b>Prisberegner</b><small>Pris ekskl. moms for jeres adresse</small></a><a href="#pris"><b>Fast lokalpris</b><small>2.400 kr. ekskl. moms i Herning, Ikast og Sunds</small></a><a href="#pris"><b>Dagspris og månedspris</b><small>22,40 kr./dag · fast månedspris fra 3. måned</small></a><a href="#bundle"><b>Samkørsel</b><small>Affald, grus og kran på samme tur</small></a></div></li>
       <li class="dd"><a href="#omraade" class="top" aria-haspopup="true">Levering<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><div class="ddp" role="menu"><a href="#omraade"><b>Område</b><small>Herning og Midtjylland · typisk 1–3 hverdage</small></a><a href="#faq"><b>Adgangskrav</b><small>3,5 m bred og 4 m høj vej</small></a><a href="#faq"><b>Underlag</b><small>Fast og plant – eller fundament på græs</small></a><a href="#story-4"><b>Bestil afhentning</b><small>Online, på mail eller telefon</small></a></div></li>
       <li class="dd"><a href="#faq" class="top" aria-haspopup="true">Spørgsmål<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><div class="ddp" role="menu"><a href="#chat" data-open-chat-link><b>Spørg AI-assistenten</b><small>Svar med det samme – også efter lukketid</small></a><a href="#faq"><b>Ofte stillede spørgsmål</b><small>Priser, placering, forsikring</small></a><a href="#om"><b>Kontakt</b><small>Man–tors 8–16 · fre 8–14</small></a></div></li>
@@ -656,13 +660,13 @@ body.hero-compact .hero .hero-bottom{padding-top:6px}
           <a class="btn ghost" href="tel:+4597122323">Ring 97 12 23 23</a>
         </div>
         <div class="hawards reveal" style="animation-delay:.62s" aria-label="Priser til HV-transport">
-          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7fd89e" stroke-width="2"><path d="M5 19c8 0 14-6 14-15-9 0-15 6-15 14"/><path d="M5 19c2-4 5-7 9-9"/></svg>Årets ESG-pris</span>
-          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7fd89e" stroke-width="2"><path d="M5 19c8 0 14-6 14-15-9 0-15 6-15 14"/><path d="M5 19c2-4 5-7 9-9"/></svg>Den Grønne Transportpris</span>
-          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="#ffd27a"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>Årets Transportvirksomhed</span>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7fd89e" stroke-width="2"><path d="M5 19c8 0 14-6 14-15-9 0-15 6-15 14"/><path d="M5 19c2-4 5-7 9-9"/></svg>Årets ESG-pris 2023</span>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7fd89e" stroke-width="2"><path d="M5 19c8 0 14-6 14-15-9 0-15 6-15 14"/><path d="M5 19c2-4 5-7 9-9"/></svg>Den Grønne Transportpris 2021</span>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="#ffd27a"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>Årets Transportvirksomhed 2008</span>
         </div>
         </div>
         <div class="hero-bottom">
-        <p class="lead reveal" style="animation-delay:.35s">Aflåst lager til værktøj og materialer, sat med vores egen kranbil – og gerne på samme tur som jeres affald, grus eller kranarbejde.</p>
+        <p class="lead reveal" style="animation-delay:.35s">Låsbart lager til værktøj og materialer, sat med vores egen kranbil – og gerne på samme tur som jeres affald, grus eller kranarbejde.</p>
         <div class="pricechip reveal" style="animation-delay:.45s"><b>Fra 2.400 kr.</b><span>ekskl. moms · levering, afhentning og 30 dage · fast pris i Herning, Ikast og Sunds</span></div>
         <a class="bundlechip reveal" style="animation-delay:.5s" href="#bundle"><i aria-hidden="true">+</i><span class="bc-long"><b>Samlerabat – alt fra én vognmand</b>Affaldscontainer, stabilgrus eller kranarbejde på samme tur – spar <em class="bundle-amt">200 kr.</em> ekskl. moms pr. ekstra ydelse</span><span class="bc-short"><b>Samlerabat:</b> spar <em class="bundle-amt">200 kr.</em> ekskl. moms pr. ekstra ydelse</span><s aria-hidden="true">→</s></a>
         <div class="trust reveal" style="animation-delay:.7s">
@@ -686,8 +690,8 @@ body.hero-compact .hero .hero-bottom{padding-top:6px}
   <section class="step" id="story-2">
     <div class="wrap" style="width:100%"><div class="card">
       <div class="num">02 / PLADS</div>
-      <h2>33 m³ aflåst lager på pladsen</h2>
-      <p>Værktøj, maskiner, materialer og inventar står tørt og låst inde – lige dér, hvor der arbejdes.</p>
+      <h2>33 m³ låsbart lager på pladsen</h2>
+      <p>Værktøj, maskiner, materialer og inventar står tørt i en låsbar container – lige dér, hvor der arbejdes.</p>
       <div class="facts">
         <div class="fact"><b>587</b><span>cm lang, indvendigt</span></div>
         <div class="fact"><b>235</b><span>cm bred</span></div>
@@ -773,6 +777,7 @@ body.hero-compact .hero .hero-bottom{padding-top:6px}
             <button type="button" data-type="std" aria-pressed="true">Standard · 33 m³</button>
             <button type="button" data-type="iso" aria-pressed="false">Isoleret · 29 m³</button>
           </div>
+          <label class="movechk" style="margin-top:20px"><input type="checkbox" id="lockchk"> <span>Tilføj godkendt containerlås <small id="lock-p">(300 kr. pr. container)</small></span></label>
           <div class="qty" id="qtybox" hidden><span class="lbl" style="margin:22px 0 10px">Antal containere</span><div class="seg" role="group" aria-label="Antal containere"><button type="button" data-q="1" aria-pressed="true">1</button><button type="button" data-q="2" aria-pressed="false">2</button><button type="button" data-q="3" aria-pressed="false">3</button><button type="button" data-q="4" aria-pressed="false">4+</button></div></div>
           <div class="range">
             <div class="row"><label class="lbl" for="mdr" style="margin:0">Lejeperiode</label><output id="mdr-out">1 måned</output></div>
@@ -796,25 +801,26 @@ body.hero-compact .hero .hero-bottom{padding-top:6px}
             <div class="ln"><span>Leje dag 1–30</span><b>inkluderet</b></div>
             <div class="ln" id="ln-month" style="display:none"><span id="mo-t">Månedspris<small id="mo-s"></small></span><b id="mo-v"></b></div>
             <div class="ln" id="ln-extra"><span id="ex-t">Leje dag 31–90<small id="ex-s">60 dage × 28 kr.</small></span><b id="ex-v">1.680 kr.</b></div>
+            <div class="ln" id="ln-lock" style="display:none"><span>Godkendt containerlås<small id="lk-s">eksempelpris – HV fastsætter</small></span><b id="lk-v"></b></div>
           </div>
           <div class="receipt combo" id="combo" style="display:none">
             <div class="ln"><span>Med på samme tur<small id="cb-s"></small></span><b>pris på bekræftelsen</b></div>
-            <div class="ln good" id="cb-waste" style="display:none"><span>Affaldscontainer hentes på returturen<small>samme bil som din container · affaldet afregnes pr. ton</small></span><b>0 kr. kørsel</b></div>
-            <div class="ln good"><span>Samlerabat – alt fra HV<small id="cb-n">én tur, én faktura</small></span><b id="cb-v"></b></div>
+                        <div class="ln good"><span>Samlerabat – alt fra HV<small id="cb-n">én tur, én faktura</small></span><b id="cb-v"></b></div>
           </div>
           <div class="total"><span id="tot-l">Fra, inkl. moms</span><div><b id="tot">4.680 kr.</b><small id="avg">ca. 1.560 kr. pr. måned</small></div></div>
           <div class="pstatus" id="pstatus"></div>
           <div class="ctas" style="margin-top:22px"><a class="btn primary" href="#tilbud" id="bookbtn">Få et tilbud på denne pris <span class="arr">→</span></a></div>
-          <p class="note" style="margin-top:14px">Alle priser er ekskl. moms og beregnet med 30 dage pr. måned. Flere containere på samme tur eller fast aftale? Så regner vi samlet på det. Tillæg for lås og forgæves kørsel oplyses af en medarbejder.</p>
-          <p class="note draftnote">Designudkast: kilometertillæg og flyttepris er eksempeltal. HV-transport indsætter egne priser i prismodellen (pricing.json).</p>
+          <p class="note" style="margin-top:14px">Alle priser er ekskl. moms og beregnet med 30 dage pr. måned. Flere containere på samme tur eller fast aftale? Så regner vi samlet på det. Tillæg for forgæves kørsel oplyses af en medarbejder.</p>
+          <p class="note draftnote">Designudkast: kilometertillæg, flyttepris, låsepris og samlerabat er eksempeltal. HV-transport fastsætter egne priser i prismodellen (pricing.json), og ruteplanlægger og prismodel skal køre på HV's egen server før lancering.</p>
         </div>
         <div class="pside">
           <div class="pbox fade">
-            <div class="eyebrow" style="color:#ffd3c4">Erhvervspris · ekskl. moms · Herning, Ikast og Sunds</div>
+            <div class="eyebrow" style="color:#ffd3c4">Eksempel på erhvervspris · ekskl. moms · Herning, Ikast og Sunds</div>
             <div class="big">2.400 kr.</div>
             <p>Levering 1.200 kr. + afhentning 1.200 kr. – fast pris</p>
             <p><b>30 dages leje er med i prisen.</b></p>
             <p style="margin-top:12px">Derefter 22,40 kr./dag · isoleret 26,40 kr./dag<br>Fra 3. måned: fast månedspris ca. 475 kr.</p>
+            <p style="margin-top:12px;opacity:.8"><small>Eksempelpriser i designudkastet – HV fastsætter erhvervspriserne.</small></p>
             <p class="zone"><b>Længere ude?</b> Så lægges et kilometertillæg til – I ser prisen i beregneren, så snart I skriver adressen. Samme gælder, når containeren skal videre til næste byggeplads.</p>
           </div>
           <div class="examples fade">
@@ -842,11 +848,11 @@ body.hero-compact .hero .hero-bottom{padding-top:6px}
       </div>
       <div class="aud">
         <article class="fade tilt"><svg class="glyph" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#c24a32" stroke-width="1.6"><path d="M3 20h18M6 20V9l6-4 6 4v11"/><path d="M10 20v-5h4v5"/></svg>
-          <div class="tag">Håndværkere og entreprenører</div><h3>Byggepladsen</h3><blockquote>»Hvor ligger jeres værktøj i nat?«</blockquote><p>Aflåst lager til værktøj og materialer, der står så længe projektet varer.</p></article>
+          <div class="tag">Håndværkere og entreprenører</div><h3>Byggepladsen</h3><blockquote>»Hvor ligger jeres værktøj i nat?«</blockquote><p>Låsbart lager til værktøj og materialer, der står så længe projektet varer.</p></article>
         <article class="fade tilt" style="transition-delay:.08s"><svg class="glyph" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#c24a32" stroke-width="1.6"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg>
           <div class="tag">Skadeservice</div><h3>Vandskade hos kunden</h3><blockquote>»Indboet skal ud, før affugtningen kan begynde.«</blockquote><p>Vi stiller en container på adressen, så møbler og kasser bliver tæt på, mens der tørres og repareres. Isoleret ved lang opbevaring.</p></article>
         <article class="fade tilt" style="transition-delay:.16s"><svg class="glyph" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#c24a32" stroke-width="1.6"><circle cx="7" cy="17" r="3"/><circle cx="18" cy="17" r="2"/><path d="M4 14V8h6l2 6M12 14h6V10h-3"/></svg>
-          <div class="tag">Landbrug, kommuner og lager</div><h3>Ekstra plads, hvor I har brug for den</h3><blockquote>»Reservedele og sæsonvarer under lås.«</blockquote><p>Lej så længe det giver mening – eller køb en brugt 20-fods container på bestilling, leveret med kran.</p></article>
+          <div class="tag">Landbrug, kommuner og lager</div><h3>Ekstra plads, hvor I har brug for den</h3><blockquote>»Reservedele og sæsonvarer – tørt og låsbart.«</blockquote><p>Lej så længe det giver mening – eller køb en brugt 20-fods container på bestilling, leveret med kran.</p></article>
       </div>
     </div>
   </section>
@@ -860,7 +866,7 @@ body.hero-compact .hero .hero-bottom{padding-top:6px}
         <dl class="spec">
           <div><dt>Container</dt><dd style="margin:0">20-fods, standard (ca. 33 m³) eller isoleret (ca. 29 m³)</dd></div>
           <div><dt>Levering</dt><dd style="margin:0">Egen kranbil, typisk inden for 1–3 hverdage. Kranen rækker 8–13 m</dd></div>
-          <div><dt>Pris</dt><dd style="margin:0">Fra 2.400 kr. ekskl. moms – se jeres pris i beregneren, eller få et samlet tilbud</dd></div>
+          <div><dt>Pris</dt><dd style="margin:0">Fra 2.400 kr. ekskl. moms (eksempelpris) – se jeres pris i beregneren, eller få et samlet tilbud</dd></div>
         </dl>
         <div class="ctas"><a class="btn primary" href="#tilbud">Få et tilbud <span class="arr">→</span></a><a class="btn ghost" href="tel:+4597122323">Ring 97 12 23 23</a></div>
       </div>
@@ -916,9 +922,9 @@ body.hero-compact .hero .hero-bottom{padding-top:6px}
         <div><b>1–3</b><span>hverdage til levering</span></div>
       </div>
       <div class="awards fade">
-        <span><i><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg></i>Årets Transportvirksomhed</span>
-        <span><i><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg></i>Årets ESG-pris</span>
-        <span><i><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg></i>Den Grønne Transportpris</span>
+        <span><i><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg></i>Årets Transportvirksomhed 2008</span>
+        <span><i><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg></i>Årets ESG-pris 2023</span>
+        <span><i><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg></i>Den Grønne Transportpris 2021</span>
       </div>
     </div>
   </section>
@@ -952,6 +958,8 @@ body.hero-compact .hero .hero-bottom{padding-top:6px}
     <div>
       <a class="logo" href="#top"><img src="img/logo-white.png" alt="containerudlejning.dk" width="196" height="48"></a>
       <p style="margin-top:16px;max-width:34ch">Opbevarings- og affaldscontainere, kranarbejde og Sandshoppen – fra Herning siden 1946.</p>
+      <div class="social"><a href="https://www.facebook.com/profile.php?id=100045701126197" target="_blank" rel="noopener" aria-label="HV-transport på Facebook" title="HV-transport på Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.6 1.6-1.6h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3v3.2h2.8V22z"/></svg></a><a href="https://www.linkedin.com/company/hv-transport-a-s/" target="_blank" rel="noopener" aria-label="HV-transport på LinkedIn" title="HV-transport på LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 9h3.6v11H4zM5.8 3.5a2.1 2.1 0 1 1 0 4.2 2.1 2.1 0 0 1 0-4.2zM9.8 9h3.5v1.5h.1c.5-.9 1.7-1.8 3.4-1.8 3.7 0 4.3 2.4 4.3 5.5V20h-3.6v-5.1c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V20H9.8z"/></svg></a><a href="https://www.instagram.com/explore/locations/305025956518255/hv-transport/" target="_blank" rel="noopener" aria-label="HV-transport på Instagram" title="HV-transport på Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.tiktok.com/@hv.transport" target="_blank" rel="noopener" aria-label="HV-transport på TikTok" title="HV-transport på TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3c.3 2.3 1.7 3.8 4 4v3.2a7 7 0 0 1-3.9-1.2v6.2a6 6 0 1 1-6-6c.3 0 .6 0 .9.1v3.3a2.7 2.7 0 1 0 1.8 2.6V3z"/></svg></a></div>
+      <p class="social-sand"><a href="https://www.facebook.com/sandshoppen.dk" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.6 1.6-1.6h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3v3.2h2.8V22z"/></svg>Sandshoppen på Facebook</a></p>
     </div>
     <div><h4>Kontakt</h4><p><a href="tel:+4597122323">97 12 23 23</a></p><p><a href="mailto:booking@containerudlejning.dk">booking@containerudlejning.dk</a></p><p>Mørupvej 37, 7400 Herning</p></div>
     <div><h4>Åbningstid</h4><p>Mandag–torsdag 8–16</p><p>Fredag 8–14</p></div>
@@ -1014,8 +1022,9 @@ const BRAIN_DEFAULT={status:'estimat',depot:{lat:56.11823,lon:8.93457},tur:{basi
   kmModel:{fraKm:15,krPrVejKmPrTur:20,maksVejKm:100},afstand:{routing:'https://router.project-osrm.org/route/v1/driving/',vejfaktor:1.3},
   leje:{inklDage:30,dagspris:{std:28,iso:33}},flytning:{basisPris:1500,krPrVejKmMellemAdresser:15,inklKm:10},postnrPriser:{},adressePriser:{},
   udenforOmraade:{tekst:'Så langt kører vi normalt ikke med online-pris – ring 97 12 23 23, så finder vi en løsning.'},
-  samkoersel:{aktiv:true,fordelPrYdelse:250,maksYdelser:4,affaldRetur:true,note:'pris på varen følger på bekræftelsen'},
-  erhverv:{moms:false,tur:{basisPris:1200},lokalZone:{prisPrTur:1200},kmModel:{krPrVejKmPrTur:16},leje:{inklDage:30,dagspris:{std:22.4,iso:26.4},maanedspris:475,maanedsprisFraDag:61},flytning:{basisPris:1200,krPrVejKmMellemAdresser:12,inklKm:10},samkoersel:{aktiv:true,fordelPrYdelse:200,maksYdelser:4,note:'affald, grus og kran på samme faktura'}}};
+  laas:{aktiv:true,pris:300},
+  samkoersel:{aktiv:true,fordelPrYdelse:250,maksYdelser:4,affaldRetur:false,note:'pris på varen følger på bekræftelsen'},
+  erhverv:{moms:false,laas:{pris:240},tur:{basisPris:1200},lokalZone:{prisPrTur:1200},kmModel:{krPrVejKmPrTur:16},leje:{inklDage:30,dagspris:{std:22.4,iso:26.4},maanedspris:475,maanedsprisFraDag:61},flytning:{basisPris:1200,krPrVejKmMellemAdresser:12,inklKm:10},samkoersel:{aktiv:true,fordelPrYdelse:200,maksYdelser:4,note:'affald, grus og kran på samme faktura'}}};
 let BRAIN=BRAIN_DEFAULT;
 const PAGE=document.body.dataset.page||'privat';
 /* the business page uses the 'erhverv' block (ex VAT) on top of the shared rules */
@@ -1063,7 +1072,7 @@ function calc(){
   {const S0=B.samkoersel||{},amt=S0.fordelPrYdelse||S0.fordel;document.querySelectorAll('.bundle-amt').forEach(e=>{if(amt)e.textContent=kr(amt)})}
   const adds=[...document.querySelectorAll('.chipsel input:checked')].map(x=>x.value),S=B.samkoersel||{},save=adds.length&&S.aktiv!==false?(S.fordelPrYdelse?S.fordelPrYdelse*Math.min(adds.length,S.maksYdelser||4):(S.fordel||0)):0;   // bundle discount: more HV services on the same trip = more saved
   document.getElementById('combo').style.display=adds.length?'':'none';
-  document.getElementById('cb-waste').style.display=adds.includes('Affaldscontainer')&&S.affaldRetur!==false?'':'none';
+  
   if(adds.length){document.getElementById('cb-s').textContent=adds.join(', ')+(S.note?' · '+S.note:'');document.getElementById('cb-v').textContent=save?'− '+kr(save):'pris på bekræftelsen';document.getElementById('cb-n').textContent=S.fordelPrYdelse?`${Math.min(adds.length,S.maksYdelser||4)} ${adds.length>1?'ydelser':'ydelse'} × ${kr(S.fordelPrYdelse)} · én tur, én faktura`:'én tur, én faktura'}
   const set=(id,v)=>document.getElementById(id).textContent=v, q=qty>1?` · × ${qty}`:'';
   set('lv-s',(A.from?d.why:intro.why)+q);set('lv-v',d.p==null?'ring':kr(d.p*qty));
@@ -1072,7 +1081,9 @@ function calc(){
   document.getElementById('af-t').firstChild.nodeValue=moveOn?'Kørsel 3 · afhentning på ny adresse':'Afhentning';
   document.getElementById('ln-move').style.display=mv?'':'none';if(mv){set('mv-s',mv.why+q);set('mv-v',kr(mv.p*qty))}
   if(qty>1){set('ex-v',kr(extra*rate*qty));if(months)set('mo-v',kr(months*mp*qty))}
-  const far=d.p==null||pu.p==null,total=far?null:qty*(d.p+pu.p+(mv?mv.p:0)+rent)-save;
+  const L=B.laas||{},lockOn=document.getElementById('lockchk').checked&&L.aktiv!==false,lockP=lockOn?(L.pris||0):0;   // lock is an add-on with its own price
+  document.getElementById('ln-lock').style.display=lockOn?'':'none';set('lk-v',kr(lockP*qty));set('lk-s','eksempelpris – HV fastsætter'+q);set('lock-p',L.pris?`(${kr(L.pris)} pr. container · ${VAT})`:'');
+  const far=d.p==null||pu.p==null,total=far?null:qty*(d.p+pu.p+(mv?mv.p:0)+rent+lockP)-save;
   set('tot-l',(A.from?'I alt ':'Fra, ')+VAT);
   if(total==null){document.getElementById('tot').textContent='Ring';set('avg',B.udenforOmraade.tekst)}else{animNum(document.getElementById('tot'),total);set('avg',`ca. ${kr(total/m)} pr. måned · ${VAT}`)}
   const tag=document.getElementById('zonetag');
@@ -1090,6 +1101,7 @@ document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{type=b.datase
 document.querySelectorAll('#qtybox button').forEach(b=>b.onclick=()=>{qty=+b.dataset.q;document.querySelectorAll('#qtybox button').forEach(x=>x.setAttribute('aria-pressed',x===b));calc()});
 if(PAGE==='erhverv')document.getElementById('qtybox').hidden=false;
 document.querySelectorAll('.chipsel input').forEach(c=>c.onchange=calc);
+document.getElementById('lockchk').onchange=calc;
 document.getElementById('movechk').onchange=e=>{document.getElementById('adrbox2').hidden=!e.target.checked;document.getElementById('movenote').hidden=!e.target.checked;if(e.target.checked)document.getElementById('adr2').focus();calc()};
 {const mc=document.getElementById('movechk');mc.checked=false;document.getElementById('adrbox2').hidden=document.getElementById('movenote').hidden=true}   // default = cheapest price: 1 month, delivery + pickup at the same address
 /* address autocomplete: Danmarks Adresser (DAWA / Dataforsyningen), the official open Danish address register */
@@ -1143,7 +1155,7 @@ TOWNS.filter(t=>t[3]).forEach(t=>{const a=document.createElement('a');a.href='#p
 
 /* ---------- FAQ ---------- */
 const FAQ=[
- ['Hvad koster en container til byggepladsen?','Levering 1.200 kr. + afhentning 1.200 kr. = 2.400 kr. ekskl. moms med de første 30 dage. Derefter 22,40 kr./dag (isoleret 26,40), og fra 3. måned en fast månedspris på ca. 475 kr. Prisen er fast i Herning, Ikast og Sunds – længere væk lægges et kilometertillæg til.'],
+ ['Hvad koster en container til byggepladsen?','Levering 1.200 kr. + afhentning 1.200 kr. = 2.400 kr. ekskl. moms med de første 30 dage. Derefter 22,40 kr./dag (isoleret 26,40), og fra 3. måned en fast månedspris på ca. 475 kr. Eksempelpris i designudkastet – HV fastsætter den endelige erhvervspris. Prisen er fast i Herning, Ikast og Sunds – længere væk lægges et kilometertillæg til.'],
  ['Kan vi få flere containere til samme plads?','Ja. Vælg antal i beregneren – og ring, så regner vi på samlet levering, når de kan komme på samme tur.'],
  ['Kan containeren komme med samme bil som affald eller grus?','Ja. Kører vi allerede affald, grus eller kranarbejde til pladsen, kommer containeren med på samme tur – og det hele står på én faktura.'],
  ['Hvad skal underlaget være?','Fast og plant: asfalt, beton eller komprimeret grus. På græs, jord eller sand skal der lægges et fundament af store fliser, beton eller kraftige bjælker.'],
@@ -1166,14 +1178,14 @@ const KB=[
  [['hurtig','levere','levering','hvornår','ikast','herning','dato'],'Vi leverer typisk inden for 1–3 hverdage, og du vælger selv datoen i bookingen. Vi dækker primært Midt- og Vestjylland – indtast adressen i bookingen for at se, om vi leverer hos dig.'],
  [['lørdag','søndag','weekend'],'Weekendlevering kan jeg ikke love – det skal en medarbejder vurdere. Normalt leverer vi inden for 1–3 hverdage.\n'+TEL],
  [['købe','køb','sælger'],'Ja, vi sælger brugte 20-fods containere på bestilling, leveret med kran. Pris og stand får du af en medarbejder.\n'+TEL],
- [['forsikr'],'Du skal selv tjekke med dit forsikringsselskab, hvordan indholdet er dækket. Vi anbefaler en godkendt containerlås – en medarbejder oplyser prisen.\n'+TEL],
+ [['forsikr'],'Du skal selv tjekke med dit forsikringsselskab, hvordan indholdet er dækket. Vi anbefaler en godkendt containerlås – du kan tilføje den i prisberegneren.\n'+TEL],
  [['eternit','asbest','olie','farligt','maling','kemikal'],'Farligt affald og asbest må ikke komme i containeren, og eternit skal altid afklares med en medarbejder først.\n'+TEL],
  [['penge tilbage','refunder','før 30','tidligt'],'Nej, de 30 dage er inkluderet i prisen for levering og afhentning (3.000 kr.), og ubrugte dage refunderes ikke.\nDu kan bestille afhentning online, på telefon eller mail.'],
  [['stor','størrelse','mål','m³','kasser','plads'],'Standard: 587 × 235 × 237 cm indvendigt, ca. 33 m³ – plads til ca. 270 flyttekasser. Isoleret: 572 × 220 × 226 cm, ca. 29 m³ – ca. 250 flyttekasser.\nBook på containerudlejning.dk.'],
- [['lås','aflås','tyv'],'Begge typer kan aflåses, og vi har kraftige, godkendte containerlåse. Prisen oplyses af en medarbejder.\n'+TEL],
+ [['lås','aflås','tyv'],'Begge typer er låsbare. Tilføj en godkendt containerlås i prisberegneren, så står den med i den samlede pris.\n'+TEL],
  [['flytte','ny adresse','flytning'],'Vi leverer en tom container, du pakker i eget tempo, og vi kører den fyldte container til din nye adresse. Flytning er tre kørsler – levering, flyttekørsel og afhentning på den nye adresse. Sæt flueben ved flytning i prisberegneren og skriv begge adresser, så ser du prisen med det samme.'],
  [['affald','affaldscontainer','byggeaffald'],'Vi har åbne og lukkede affaldscontainere på 12–16 m³. Der er 7 dage inkluderet på åbne containere, og affaldet afregnes pr. ton (min. 1 ton). Må ikke fyldes over kanten.\nBook på containerudlejning.dk.'],
- [['affaldscontainer','affald','oprydning','rydde op','skrald'],'Ja – bestiller du en affaldscontainer sammen med din opbevaringscontainer, tager vi den med tilbage på samme tur, når vi henter. Du betaler ingen ekstra kørsel, kun for affaldet, som afregnes pr. ton efter type. Én lastbil i stedet for to – godt for prisen og miljøet.\nVælg „Affaldscontainer“ under „Saml mere hos HV – og spar“ i prisberegneren.'],
+ [['affaldscontainer','affald','oprydning','rydde op','skrald'],'Ja – bestiller du en affaldscontainer sammen med din opbevaringscontainer, kører vi den på samme tur, når det kan lade sig gøre, og du får samlerabat. Affaldet afregnes pr. ton efter type. Færre kørsler – godt for prisen og miljøet.\nVælg „Affaldscontainer“ under „Saml mere hos HV – og spar“ i prisberegneren.'],
  [['sand','grus','muld','sandshoppen','stabilgrus','fliser','bed'],'Sand, grus og muld fra Sandshoppen kan komme med lastbilen på samme tur som containeren – så sparer du en kørsel, og du får det hele på én faktura. Vælg det under „Saml mere hos HV – og spar“ i prisberegneren – hver ekstra ydelse giver samlerabat.\nPrisen på selve varen står på bekræftelsen, eller ring 97 12 23 23.'],
  [['åbent','åbningstid','kontakt','telefon','ring'],'Vi har åbent mandag–torsdag 8–16 og fredag 8–14. Tlf. 97 12 23 23, booking@containerudlejning.dk, Mørupvej 37, 7400 Herning.']
 ];
@@ -1208,7 +1220,7 @@ function answer(q){
   if(PAGE==='erhverv'){const r=b2bAnswer(t);if(r)return r}
   else if(B2B.some(w=>t.includes(w)))return 'Online booking er kun for private. Som virksomhed får du prisen af en medarbejder, som også kan se på samlet levering med affald eller grus.\n'+TEL;
   if(/affald/.test(t)&&/(tage|med|retur|samme tur|hent|tilbage|flyt)/.test(t)&&PAGE!=='erhverv')
-    return 'Ja – bestiller du en affaldscontainer sammen med din opbevaringscontainer, tager vi den med tilbage på samme tur, når vi henter. Du betaler ingen ekstra kørsel, kun for affaldet, som afregnes pr. ton efter type. Én lastbil i stedet for to – godt for prisen og miljøet.\nVælg „Affaldscontainer“ under „Saml mere hos HV – og spar“ i prisberegneren.';
+    return 'Ja – bestiller du en affaldscontainer sammen med din opbevaringscontainer, kører vi den på samme tur, når det kan lade sig gøre, og du får samlerabat. Affaldet afregnes pr. ton efter type. Færre kørsler – godt for prisen og miljøet.\nVælg „Affaldscontainer“ under „Saml mere hos HV – og spar“ i prisberegneren.';
   const p=priceAnswer(t);if(p)return p;
   if(/koste|pris|hvad giver/.test(t))return 'Levering 1.500 kr. + afhentning 1.500 kr. = 3.000 kr. inkl. moms, og de første 30 dage er inkluderet – fast pris i Herning, Ikast og Sunds. Bor du længere væk, så skriv din adresse i prisberegneren, så ser du prisen med det samme. Derefter 28 kr./dag (standard) eller 33 kr./dag (isoleret).\nFx 3 mdr.: 4.680 kr. · 6 mdr.: 7.200 kr. · 12 mdr.: 12.240 kr.\nBook på containerudlejning.dk.';
   let best=null,sc=0;KB.forEach(([ks,a])=>{const s=ks.filter(k=>t.includes(k)).length;if(s>sc){sc=s;best=a}});
