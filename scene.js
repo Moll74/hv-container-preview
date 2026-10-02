@@ -466,7 +466,7 @@ let dims = dimsVilla;
 const ROAD_Z = +(new URLSearchParams(location.search).get("rz") ?? CFG.roadZ ?? 9.08), PX = 81.5; // house-side lane of the street, parallel to the kerb
 const truckG = new THREE.Group(); scene.add(truckG);
 // the truck photo is graded offline to the plate (evening key from behind-right, lifted blacks, no studio halo, tinted glass)
-const truckTex = tex('assets/truck_side_graded.png', true); truckTex.wrapS = truckTex.wrapT = THREE.ClampToEdgeWrapping; truckTex.anisotropy = 8;
+const truckTex = tex('assets/truck_side_graded.webp', true); truckTex.wrapS = truckTex.wrapT = THREE.ClampToEdgeWrapping; truckTex.anisotropy = 8;
 const truckGeo = new THREE.PlaneGeometry(960 / PX, 536 / PX);
 const truckPlane = new THREE.Mesh(truckGeo, new THREE.MeshBasicMaterial({ map: truckTex, transparent: true, alphaTest: 0.03, toneMapped: false }));
 truckPlane.rotation.y = Math.PI; truckPlane.position.set(0, (422 - 268) / PX, -1.25); truckPlane.renderOrder = 1; truckG.add(truckPlane);
